@@ -18,8 +18,11 @@ syntax keyword DstCommentTodo contained FIXME XXX TODO FIXME: XXX: TODO:
 " DST comments
 syn match DstComment "#.*$" contains=DstCommentTodo,@Spell
 
-syntax match DstStringEscape '\v\\%([\\btnfr"])' contained
+syntax match DstStringEscape '\v\\%([ntr0zfe"\\]|h[[0-9a-fA-F]]\{2})' contained
 syntax region DstString matchgroup=DstStringDelimiter start=/"/ skip=/\\\\\|\\"/ end=/"/ contains=DstStringEscape,@Spell
+syntax region DstBuffer matchgroup=DstStringDelimiter start=/@"/ skip=/\\\\\|\\"/ end=/"/ contains=DstStringEscape,@Spell
+call s:FoldableRegion('string', 'DstStringLong',
+      \ 'matchgroup=DstStringDelimiter start="\\\z(=*\)\\" end="\\\z1\\" contains=@Spell')
 
 " Dst Symbols
 syn match DstSymbol '\v<%([a-zA-Z!$&*_+=|<.>?-])+%([a-zA-Z0-9!#$%&*_+=|'<.>/?-])*>'
@@ -38,10 +41,12 @@ syn match DstKeyword '\v<:[a-zA-Z0-9_\-]*>'
 syntax match DstQuote "'"
 
 " -*- TOP CLUSTER -*-
-syntax cluster DstTop contains=@Spell,DstComment,DstConstant,DstQuote,DstKeyword,DstSymbol,DstInteger,DstReal,DstString,DstTuple,DstArray,DstTable,DstStruct
+syntax cluster DstTop contains=@Spell,DstComment,DstConstant,DstQuote,DstKeyword,DstSymbol,DstInteger,DstReal,DstString,DstBuffer,DstTuple,DstArray,DstTable,DstStruct
 
 syntax region DstTuple matchgroup=DstParen start="("  end=")" contains=@DstTop fold
-syntax region DstArray matchgroup=DstParen start="\[" end="]" contains=@DstTop fold
+syntax region DstArray matchgroup=DstParen start="@("  end=")" contains=@DstTop fold
+syntax region DstTuple matchgroup=DstParen start="\[" end="]" contains=@DstTop fold
+syntax region DstArray matchgroup=DstParen start="@\[" end="]" contains=@DstTop fold
 syntax region DstTable matchgroup=DstParen start="{"  end="}" contains=@DstTop fold
 syntax region DstStruct matchgroup=DstParen start="@{"  end="}" contains=@DstTop fold
 
