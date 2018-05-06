@@ -21,26 +21,50 @@ syn match DstComment "#.*$" contains=DstCommentTodo,@Spell
 syntax match DstStringEscape '\v\\%([ntr0zfe"\\]|h[[0-9a-fA-F]]\{2})' contained
 syntax region DstString matchgroup=DstStringDelimiter start=/"/ skip=/\\\\\|\\"/ end=/"/ contains=DstStringEscape,@Spell
 syntax region DstBuffer matchgroup=DstStringDelimiter start=/@"/ skip=/\\\\\|\\"/ end=/"/ contains=DstStringEscape,@Spell
-syntax region DstStringLong matchgroup=DstStringDelimiter start="\\\z(=*\)\\" end="\\\z1\\" contains=@Spell
+syntax region DstString matchgroup=DstStringDelimiter start="\\\z(=*\)\\" end="\\\z1\\" contains=@Spell
+syntax region DstBuffer matchgroup=DstStringDelimiter start="@\\\z(=*\)\\" end="\\\z1\\" contains=@Spell
+
+syn keyword DstConstant nil 
+
+syn keyword DstBoolean true 
+syn keyword DstBoolean false
+
+syn keyword DstSpecialForm if
+syn keyword DstSpecialForm do
+syn keyword DstSpecialForm fn
+syn keyword DstSpecialForm while
+syn keyword DstSpecialForm def
+syn keyword DstSpecialForm var
+syn keyword DstSpecialForm quote
+syn keyword DstSpecialForm ast-quote
 
 " Dst Symbols
-syn match DstSymbol '\v<%([a-zA-Z!$&*_+=|<.>?-])+%([a-zA-Z0-9!#$%&*_+=|'<.>/?-])*>'
+let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z~|'
+let s:symchar = '0-9' . s:symcharnodig
+execute 'syn match DstSymbol "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
+execute 'syn match DstKeyword "\v<:%([' . s:symchar . '])*>"'
+unlet! s:symchar s:symcharnodig
+
+syn match DstQuote "'"
 
 " DST numbers
-syn match DstReal '\v<[-+]?%(\d+|\d+\.\d*)%([eE][-+]?\d+)?>'
-syn match DstInteger '\v<[-+]?%(\d+)>'
-
-syn match DstConstant 'nil' 
-syn match DstConstant 'true' 
-syn match DstConstant 'false'
-
-" Dst Keywords
-syn match DstKeyword '\v<:[a-zA-Z0-9_\-]*>'
-
-syntax match DstQuote "'"
+function! s:syntaxNumber(prefix, expo, digit)
+  let l:digit = '[_' . a:digit . ']'
+  execute 'syntax match DstNumber "\v\c<[-+]?' . a:prefix . '%(' .
+              \ l:digit . '+|' .
+              \ l:digit . '+\.' . l:digit . '*|' .
+              \ '\.' . l:digit . '+)%(' . a:expo . '[-+]?[' . a:digit . ']+)?>"'
+endfunction
+let s:radix_chars = "0123456789abcdefghijklmnopqrstuvwxyz"
+for s:radix in range(2, 36)
+    call s:syntaxNumber(s:radix . 'r', '\&', '[' . strpart(s:radix_chars, 0, s:radix) . ']')
+endfor
+call s:syntaxNumber('', '[&e]', '0123456789')
+call s:syntaxNumber('0x', '\&', '0123456789abcdef')
+unlet! s:radix_chars s:radix
 
 " -*- TOP CLUSTER -*-
-syntax cluster DstTop contains=@Spell,DstComment,DstConstant,DstQuote,DstKeyword,DstSymbol,DstInteger,DstReal,DstString,DstBuffer,DstTuple,DstArray,DstTable,DstStruct
+syntax cluster DstTop contains=@Spell,DstComment,DstConstant,DstQuote,DstKeyword,DstSymbol,DstNumber,DstString,DstBuffer,DstTuple,DstArray,DstTable,DstStruct,DstSpecialForm,DstBoolean
 
 syntax region DstTuple matchgroup=DstParen start="("  end=")" contains=@DstTop fold
 syntax region DstArray matchgroup=DstParen start="@("  end=")" contains=@DstTop fold
@@ -57,12 +81,14 @@ syntax sync fromstart
 " Highlighting
 hi def link DstComment Comment
 hi def link DstSymbol Identifier
-hi def link DstInteger Number
-hi def link DstReal Type
+hi def link DstNumber Number
 hi def link DstConstant Constant
 hi def link DstKeyword Keyword
+hi def link DstSpecialForm Special
 hi def link DstString String
+hi def link DstBuffer String
 hi def link DstStringDelimiter String
+hi def link DstBoolean Boolean
 
 hi def link DstQuote SpecialChar
 hi def link DstParen Delimiter
