@@ -21,8 +21,7 @@ syn match DstComment "#.*$" contains=DstCommentTodo,@Spell
 syntax match DstStringEscape '\v\\%([ntr0zfe"\\]|h[[0-9a-fA-F]]\{2})' contained
 syntax region DstString matchgroup=DstStringDelimiter start=/"/ skip=/\\\\\|\\"/ end=/"/ contains=DstStringEscape,@Spell
 syntax region DstBuffer matchgroup=DstStringDelimiter start=/@"/ skip=/\\\\\|\\"/ end=/"/ contains=DstStringEscape,@Spell
-call s:FoldableRegion('string', 'DstStringLong',
-      \ 'matchgroup=DstStringDelimiter start="\\\z(=*\)\\" end="\\\z1\\" contains=@Spell')
+syntax region DstStringLong matchgroup=DstStringDelimiter start="\\\z(=*\)\\" end="\\\z1\\" contains=@Spell
 
 " Dst Symbols
 syn match DstSymbol '\v<%([a-zA-Z!$&*_+=|<.>?-])+%([a-zA-Z0-9!#$%&*_+=|'<.>/?-])*>'
