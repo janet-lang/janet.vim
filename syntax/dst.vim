@@ -21,8 +21,8 @@ syn match DstComment "#.*$" contains=DstCommentTodo,@Spell
 syntax match DstStringEscape '\v\\%([ntr0zfe"\\]|h[[0-9a-fA-F]]\{2})' contained
 syntax region DstString matchgroup=DstStringDelimiter start=/"/ skip=/\\\\\|\\"/ end=/"/ contains=DstStringEscape,@Spell
 syntax region DstBuffer matchgroup=DstStringDelimiter start=/@"/ skip=/\\\\\|\\"/ end=/"/ contains=DstStringEscape,@Spell
-syntax region DstString matchgroup=DstStringDelimiter start="\z(\`+\)" end="\z1" contains=@Spell
-syntax region DstBuffer matchgroup=DstStringDelimiter start="@\z(\`+\)" end="\z1" contains=@Spell
+syntax region DstString matchgroup=DstStringDelimiter start="\z(`\+\)" end="\z1" contains=@Spell
+syntax region DstBuffer matchgroup=DstStringDelimiter start="@\z(`\+\)" end="\z1" contains=@Spell
 
 syn keyword DstConstant nil 
 
