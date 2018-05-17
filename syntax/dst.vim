@@ -39,7 +39,7 @@ syn keyword DstSpecialForm quote
 syn keyword DstSpecialForm ast-quote
 
 " Dst Symbols
-let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z~|'
+let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z~|\x80-\U10FFFF'
 let s:symchar = '0-9' . s:symcharnodig
 execute 'syn match DstSymbol "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
 execute 'syn match DstKeyword "\v<:%([' . s:symchar . '])*>"'
