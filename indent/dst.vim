@@ -28,7 +28,7 @@ if exists("*searchpairpos")
 	endif
 
 	if !exists('g:dst_fuzzy_indent_patterns')
-		let g:dst_fuzzy_indent_patterns = ['^def', '^let']
+		let g:dst_fuzzy_indent_patterns = ['^def', '^let', '^while', '^if', '^unless', '^fn$', '^var$', '^switch$', '^for$', '^loop$']
 	endif
 
 	if !exists('g:dst_fuzzy_indent_blacklist')

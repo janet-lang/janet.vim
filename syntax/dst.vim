@@ -36,7 +36,6 @@ syn keyword DstSpecialForm while
 syn keyword DstSpecialForm def
 syn keyword DstSpecialForm var
 syn keyword DstSpecialForm quote
-syn keyword DstSpecialForm ast-quote
 
 " Dst Symbols
 let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z~|\x80-\U10FFFF'
