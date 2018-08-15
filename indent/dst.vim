@@ -28,7 +28,7 @@ if exists("*searchpairpos")
 	endif
 
 	if !exists('g:dst_fuzzy_indent_patterns')
-		let g:dst_fuzzy_indent_patterns = ['^def', '^let', '^while', '^if', '^unless', '^fn$', '^var$', '^switch$', '^for$', '^loop$']
+		let g:dst_fuzzy_indent_patterns = ['^def', '^let', '^while', '^if', '^unless', '^fn$', '^var$', '^switch$', '^case$', '^for$', '^loop$']
 	endif
 
 	if !exists('g:dst_fuzzy_indent_blacklist')
@@ -111,7 +111,7 @@ if exists("*searchpairpos")
 		endif
 
 		" This will not work for a " in the first column...
-		if s:current_char() == '"'
+		if s:current_char() == '"' || s:current_char() == '`'
 			call cursor(0, col("$") - 2)
 			if s:syn_id_name() !~? "string"
 				return -1
@@ -122,7 +122,7 @@ if exists("*searchpairpos")
 			call cursor(0, col("$") - 1)
 		endif
 
-		let p = searchpos('\(^\|[^\\]\)\zs"', 'bW')
+		let p = searchpos('\(^\|[^\\]\)\zs"\`', 'bW')
 
 		if p != [0, 0]
 			return p[1] - 1
@@ -297,7 +297,7 @@ if exists("*searchpairpos")
 			if bracket_count == 0
 				" Check if this is part of a multiline string
 				call cursor(lnum, 1)
-				if s:syn_id_name() !~? '\vstring|regex'
+				if s:syn_id_name() !~? '\vString|Buffer'
 					call cursor(orig_lnum, orig_col)
 					return indent(lnum)
 				endif
