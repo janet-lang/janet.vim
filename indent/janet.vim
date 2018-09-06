@@ -1,5 +1,5 @@
 " Vim filetype plugin file
-" Language: DST
+" Language: JANET
 " Maintainer: Calvin Rose
 "
 " Modified from vim-clojure-static
@@ -19,32 +19,32 @@ setlocal indentkeys=!,o,O
 
 if exists("*searchpairpos")
 
-	if !exists('g:dst_maxlines')
-		let g:dst_maxlines = 100
+	if !exists('g:janet_maxlines')
+		let g:janet_maxlines = 100
 	endif
 
-	if !exists('g:dst_fuzzy_indent')
-		let g:dst_fuzzy_indent = 1
+	if !exists('g:janet_fuzzy_indent')
+		let g:janet_fuzzy_indent = 1
 	endif
 
-	if !exists('g:dst_fuzzy_indent_patterns')
-		let g:dst_fuzzy_indent_patterns = ['^def', '^let', '^while', '^if', '^unless', '^fn$', '^var$', '^switch$', '^case$', '^for$', '^loop$']
+	if !exists('g:janet_fuzzy_indent_patterns')
+		let g:janet_fuzzy_indent_patterns = ['^def', '^let', '^while', '^if', '^unless', '^fn$', '^var$', '^switch$', '^case$', '^for$', '^loop$']
 	endif
 
-	if !exists('g:dst_fuzzy_indent_blacklist')
-		let g:dst_fuzzy_indent_blacklist = []
+	if !exists('g:janet_fuzzy_indent_blacklist')
+		let g:janet_fuzzy_indent_blacklist = []
 	endif
 
-	if !exists('g:dst_special_indent_words')
-		let g:dst_special_indent_words = ''
+	if !exists('g:janet_special_indent_words')
+		let g:janet_special_indent_words = ''
 	endif
 
-	if !exists('g:dst_align_multiline_strings')
-		let g:dst_align_multiline_strings = 0
+	if !exists('g:janet_align_multiline_strings')
+		let g:janet_align_multiline_strings = 0
 	endif
 
-	if !exists('g:dst_align_subforms')
-		let g:dst_align_subforms = 0
+	if !exists('g:janet_align_subforms')
+		let g:janet_align_subforms = 0
 	endif
 
 	function! s:syn_id_name()
@@ -82,8 +82,8 @@ if exists("*searchpairpos")
 	function! s:match_pairs(open, close, stopat)
 		" Stop only on vector and map [ resp. {. Ignore the ones in strings and
 		" comments.
-		if a:stopat == 0 && g:dst_maxlines > 0
-			let stopat = max([line(".") - g:dst_maxlines, 0])
+		if a:stopat == 0 && g:janet_maxlines > 0
+			let stopat = max([line(".") - g:janet_maxlines, 0])
 		else
 			let stopat = a:stopat
 		endif
@@ -92,7 +92,7 @@ if exists("*searchpairpos")
 		return [pos[0], col(pos)]
 	endfunction
 
-	function! s:dst_check_for_string_worker()
+	function! s:janet_check_for_string_worker()
 		" Check whether there is the last character of the previous line is
 		" highlighted as a string. If so, we check whether it's a ". In this
 		" case we have to check also the previous character. The " might be the
@@ -134,7 +134,7 @@ if exists("*searchpairpos")
 	function! s:check_for_string()
 		let pos = getpos('.')
 		try
-			let val = s:dst_check_for_string_worker()
+			let val = s:janet_check_for_string_worker()
 		finally
 			call setpos('.', pos)
 		endtry
@@ -147,7 +147,7 @@ if exists("*searchpairpos")
 	endfunction
 
 	" Returns: [opening-bracket-lnum, indent]
-	function! s:dst_indent_pos()
+	function! s:janet_indent_pos()
 		" Get rid of special case.
 		if line(".") == 1
 			return [0, 0]
@@ -157,7 +157,7 @@ if exists("*searchpairpos")
 		" normal lisp indenting or not.
 		let i = s:check_for_string()
 		if i > -1
-			return [0, i + !!g:dst_align_multiline_strings]
+			return [0, i + !!g:janet_align_multiline_strings]
 		endif
 
 		call cursor(0, 1)
@@ -193,7 +193,7 @@ if exists("*searchpairpos")
 		" soon as one has access to syntax items.
 		"
 		" - Check whether we are in a special position after a word in
-		"   g:dst_special_indent_words. These are special cases.
+		"   g:janet_special_indent_words. These are special cases.
 		" - Get the next keyword after the (.
 		" - If its first character is also a (, we have another sexp and align
 		"   one column to the right of the unmatched (.
@@ -234,27 +234,27 @@ if exists("*searchpairpos")
 			return [paren[0], paren[1] + &shiftwidth - 1]
 		endif
 
-		if g:dst_fuzzy_indent
-			\ && !s:match_one(g:dst_fuzzy_indent_blacklist, ww)
-			\ && s:match_one(g:dst_fuzzy_indent_patterns, ww)
+		if g:janet_fuzzy_indent
+			\ && !s:match_one(g:janet_fuzzy_indent_blacklist, ww)
+			\ && s:match_one(g:janet_fuzzy_indent_patterns, ww)
 			return [paren[0], paren[1] + &shiftwidth - 1]
 		endif
 
 		call search('\v\_s', 'cW')
 		call search('\v\S', 'W')
 		if paren[0] < line(".")
-			return [paren[0], paren[1] + (g:dst_align_subforms ? 0 : &shiftwidth - 1)]
+			return [paren[0], paren[1] + (g:janet_align_subforms ? 0 : &shiftwidth - 1)]
 		endif
 
 		call search('\v\S', 'bW')
 		return [line('.'), col('.') + 1]
 	endfunction
 
-	function! GetDstIndent()
+	function! GetJanetIndent()
 		let lnum = line('.')
 		let orig_lnum = lnum
 		let orig_col = col('.')
-		let [opening_lnum, indent] = s:dst_indent_pos()
+		let [opening_lnum, indent] = s:janet_indent_pos()
 
 		" Account for multibyte characters
 		if opening_lnum > 0
@@ -308,7 +308,7 @@ if exists("*searchpairpos")
 		return indent
 	endfunction
 
-	setlocal indentexpr=GetDstIndent()
+	setlocal indentexpr=GetJanetIndent()
 
 else
 

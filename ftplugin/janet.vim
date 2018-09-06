@@ -1,5 +1,5 @@
 " Vim filetype plugin file
-" Language: DST
+" Language: JANET
 " Maintainer: Calvin Rose
 
 if exists("b:did_ftplugin")
