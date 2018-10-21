@@ -130,6 +130,7 @@ syn keyword JanetCoreValue doc*
 syn keyword JanetCoreValue drop-until
 syn keyword JanetCoreValue drop-while
 syn keyword JanetCoreValue each
+syn keyword JanetCoreValue env-lookup
 syn keyword JanetCoreValue error
 syn keyword JanetCoreValue eval
 syn keyword JanetCoreValue even?
@@ -174,6 +175,7 @@ syn keyword JanetCoreValue inc
 syn keyword JanetCoreValue indexed?
 syn keyword JanetCoreValue int
 syn keyword JanetCoreValue integer?
+syn keyword JanetCoreValue invert
 syn keyword JanetCoreValue janet.version
 syn keyword JanetCoreValue juxt
 syn keyword JanetCoreValue juxt*
