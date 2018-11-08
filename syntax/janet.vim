@@ -175,6 +175,7 @@ syn keyword JanetCoreValue inc
 syn keyword JanetCoreValue indexed?
 syn keyword JanetCoreValue int
 syn keyword JanetCoreValue integer?
+syn keyword JanetCoreValue interleave
 syn keyword JanetCoreValue invert
 syn keyword JanetCoreValue janet.version
 syn keyword JanetCoreValue juxt
