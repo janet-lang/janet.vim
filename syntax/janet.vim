@@ -40,11 +40,14 @@ syn keyword JanetSpecialForm quote
 
 " Not really special forms, but useful to highlight
 " All symbols from janet core.
+syn keyword JanetCoreValue $
+syn keyword JanetCoreValue %
 syn keyword JanetCoreValue %=
 syn keyword JanetCoreValue &
 syn keyword JanetCoreValue &=
 syn keyword JanetCoreValue *
 syn keyword JanetCoreValue *=
+syn keyword JanetCoreValue *doc-width*
 syn keyword JanetCoreValue *env*
 syn keyword JanetCoreValue +
 syn keyword JanetCoreValue ++
@@ -79,12 +82,12 @@ syn keyword JanetCoreValue apply
 syn keyword JanetCoreValue array
 syn keyword JanetCoreValue array.concat
 syn keyword JanetCoreValue array.ensure
+syn keyword JanetCoreValue array.insert
 syn keyword JanetCoreValue array.new
 syn keyword JanetCoreValue array.peek
 syn keyword JanetCoreValue array.pop
 syn keyword JanetCoreValue array.push
 syn keyword JanetCoreValue array.reverse
-syn keyword JanetCoreValue array.setcount
 syn keyword JanetCoreValue array.slice
 syn keyword JanetCoreValue array?
 syn keyword JanetCoreValue asm
@@ -100,9 +103,11 @@ syn keyword JanetCoreValue buffer.push-string
 syn keyword JanetCoreValue buffer.slice
 syn keyword JanetCoreValue buffer?
 syn keyword JanetCoreValue bytes?
+syn keyword JanetCoreValue call
 syn keyword JanetCoreValue callable?
 syn keyword JanetCoreValue case
 syn keyword JanetCoreValue cfunction?
+syn keyword JanetCoreValue class
 syn keyword JanetCoreValue comment
 syn keyword JanetCoreValue comp
 syn keyword JanetCoreValue compile
@@ -114,19 +119,22 @@ syn keyword JanetCoreValue dec
 syn keyword JanetCoreValue deep-not=
 syn keyword JanetCoreValue deep=
 syn keyword JanetCoreValue def-
-syn keyword JanetCoreValue defasm
 syn keyword JanetCoreValue default
 syn keyword JanetCoreValue default-error-handler
+syn keyword JanetCoreValue defclass
 syn keyword JanetCoreValue defglobal
+syn keyword JanetCoreValue defm
 syn keyword JanetCoreValue defmacro
 syn keyword JanetCoreValue defmacro-
 syn keyword JanetCoreValue defn
 syn keyword JanetCoreValue defn-
+syn keyword JanetCoreValue defnew
 syn keyword JanetCoreValue describe
 syn keyword JanetCoreValue dictionary?
 syn keyword JanetCoreValue disasm
 syn keyword JanetCoreValue doc
 syn keyword JanetCoreValue doc*
+syn keyword JanetCoreValue doc-format
 syn keyword JanetCoreValue drop-until
 syn keyword JanetCoreValue drop-while
 syn keyword JanetCoreValue each
@@ -162,6 +170,7 @@ syn keyword JanetCoreValue function?
 syn keyword JanetCoreValue gccollect
 syn keyword JanetCoreValue gcinterval
 syn keyword JanetCoreValue gcsetinterval
+syn keyword JanetCoreValue generate
 syn keyword JanetCoreValue gensym
 syn keyword JanetCoreValue get
 syn keyword JanetCoreValue getline
@@ -173,6 +182,7 @@ syn keyword JanetCoreValue import
 syn keyword JanetCoreValue import*
 syn keyword JanetCoreValue inc
 syn keyword JanetCoreValue indexed?
+syn keyword JanetCoreValue instance-of?
 syn keyword JanetCoreValue int
 syn keyword JanetCoreValue integer?
 syn keyword JanetCoreValue interleave
@@ -255,7 +265,6 @@ syn keyword JanetCoreValue parser.status
 syn keyword JanetCoreValue parser.where
 syn keyword JanetCoreValue partial
 syn keyword JanetCoreValue pos?
-syn keyword JanetCoreValue pp
 syn keyword JanetCoreValue print
 syn keyword JanetCoreValue process.args
 syn keyword JanetCoreValue product
@@ -288,6 +297,7 @@ syn keyword JanetCoreValue string.find-all
 syn keyword JanetCoreValue string.from-bytes
 syn keyword JanetCoreValue string.join
 syn keyword JanetCoreValue string.number
+syn keyword JanetCoreValue string.pretty
 syn keyword JanetCoreValue string.repeat
 syn keyword JanetCoreValue string.replace
 syn keyword JanetCoreValue string.replace-all
@@ -324,6 +334,7 @@ syn keyword JanetCoreValue values
 syn keyword JanetCoreValue varglobal
 syn keyword JanetCoreValue when
 syn keyword JanetCoreValue when-let
+syn keyword JanetCoreValue wrap-call
 syn keyword JanetCoreValue yield
 syn keyword JanetCoreValue zero?
 syn keyword JanetCoreValue zipcoll
