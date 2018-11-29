@@ -87,7 +87,6 @@ syn keyword JanetCoreValue array.new
 syn keyword JanetCoreValue array.peek
 syn keyword JanetCoreValue array.pop
 syn keyword JanetCoreValue array.push
-syn keyword JanetCoreValue array.reverse
 syn keyword JanetCoreValue array.slice
 syn keyword JanetCoreValue array?
 syn keyword JanetCoreValue asm
@@ -137,7 +136,6 @@ syn keyword JanetCoreValue doc*
 syn keyword JanetCoreValue doc-format
 syn keyword JanetCoreValue drop-until
 syn keyword JanetCoreValue drop-while
-syn keyword JanetCoreValue each
 syn keyword JanetCoreValue env-lookup
 syn keyword JanetCoreValue error
 syn keyword JanetCoreValue eval
@@ -164,7 +162,6 @@ syn keyword JanetCoreValue filter
 syn keyword JanetCoreValue find
 syn keyword JanetCoreValue find-index
 syn keyword JanetCoreValue for
-syn keyword JanetCoreValue fora
 syn keyword JanetCoreValue frequencies
 syn keyword JanetCoreValue function?
 syn keyword JanetCoreValue gccollect
@@ -199,7 +196,6 @@ syn keyword JanetCoreValue macroexpand
 syn keyword JanetCoreValue macroexpand-1
 syn keyword JanetCoreValue make-env
 syn keyword JanetCoreValue map
-syn keyword JanetCoreValue mapa
 syn keyword JanetCoreValue mapcat
 syn keyword JanetCoreValue marshal
 syn keyword JanetCoreValue math.acos
@@ -223,6 +219,7 @@ syn keyword JanetCoreValue math.tan
 syn keyword JanetCoreValue max
 syn keyword JanetCoreValue max-order
 syn keyword JanetCoreValue merge
+syn keyword JanetCoreValue merge-into
 syn keyword JanetCoreValue min
 syn keyword JanetCoreValue min-order
 syn keyword JanetCoreValue module.find
@@ -323,7 +320,6 @@ syn keyword JanetCoreValue true?
 syn keyword JanetCoreValue tuple
 syn keyword JanetCoreValue tuple.append
 syn keyword JanetCoreValue tuple.prepend
-syn keyword JanetCoreValue tuple.reverse
 syn keyword JanetCoreValue tuple.slice
 syn keyword JanetCoreValue tuple?
 syn keyword JanetCoreValue type
