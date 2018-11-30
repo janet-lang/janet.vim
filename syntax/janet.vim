@@ -195,8 +195,8 @@ syn keyword JanetCoreValue last
 syn keyword JanetCoreValue length
 syn keyword JanetCoreValue let
 syn keyword JanetCoreValue loop
-syn keyword JanetCoreValue macroexpand
-syn keyword JanetCoreValue macroexpand-1
+syn keyword JanetCoreValue macex
+syn keyword JanetCoreValue macex1
 syn keyword JanetCoreValue make-env
 syn keyword JanetCoreValue map
 syn keyword JanetCoreValue mapcat
