@@ -40,7 +40,6 @@ syn keyword JanetSpecialForm quote
 
 " Not really special forms, but useful to highlight
 " All symbols from janet core.
-syn keyword JanetCoreValue $
 syn keyword JanetCoreValue %
 syn keyword JanetCoreValue %=
 syn keyword JanetCoreValue &
@@ -75,8 +74,8 @@ syn keyword JanetCoreValue ^
 syn keyword JanetCoreValue ^=
 syn keyword JanetCoreValue _env
 syn keyword JanetCoreValue abstract?
+syn keyword JanetCoreValue all
 syn keyword JanetCoreValue all-symbols
-syn keyword JanetCoreValue all?
 syn keyword JanetCoreValue and
 syn keyword JanetCoreValue apply
 syn keyword JanetCoreValue array
@@ -102,11 +101,9 @@ syn keyword JanetCoreValue buffer.push-string
 syn keyword JanetCoreValue buffer.slice
 syn keyword JanetCoreValue buffer?
 syn keyword JanetCoreValue bytes?
-syn keyword JanetCoreValue call
 syn keyword JanetCoreValue callable?
 syn keyword JanetCoreValue case
 syn keyword JanetCoreValue cfunction?
-syn keyword JanetCoreValue class
 syn keyword JanetCoreValue comment
 syn keyword JanetCoreValue comp
 syn keyword JanetCoreValue compile
@@ -120,22 +117,22 @@ syn keyword JanetCoreValue deep=
 syn keyword JanetCoreValue def-
 syn keyword JanetCoreValue default
 syn keyword JanetCoreValue default-error-handler
-syn keyword JanetCoreValue defclass
 syn keyword JanetCoreValue defglobal
-syn keyword JanetCoreValue defm
 syn keyword JanetCoreValue defmacro
 syn keyword JanetCoreValue defmacro-
 syn keyword JanetCoreValue defn
 syn keyword JanetCoreValue defn-
-syn keyword JanetCoreValue defnew
 syn keyword JanetCoreValue describe
 syn keyword JanetCoreValue dictionary?
 syn keyword JanetCoreValue disasm
+syn keyword JanetCoreValue distinct
 syn keyword JanetCoreValue doc
 syn keyword JanetCoreValue doc*
 syn keyword JanetCoreValue doc-format
 syn keyword JanetCoreValue drop-until
 syn keyword JanetCoreValue drop-while
+syn keyword JanetCoreValue each
+syn keyword JanetCoreValue empty?
 syn keyword JanetCoreValue env-lookup
 syn keyword JanetCoreValue error
 syn keyword JanetCoreValue eval
@@ -161,6 +158,9 @@ syn keyword JanetCoreValue file.write
 syn keyword JanetCoreValue filter
 syn keyword JanetCoreValue find
 syn keyword JanetCoreValue find-index
+syn keyword JanetCoreValue first
+syn keyword JanetCoreValue flatten
+syn keyword JanetCoreValue flatten-into
 syn keyword JanetCoreValue for
 syn keyword JanetCoreValue frequencies
 syn keyword JanetCoreValue function?
@@ -179,16 +179,19 @@ syn keyword JanetCoreValue import
 syn keyword JanetCoreValue import*
 syn keyword JanetCoreValue inc
 syn keyword JanetCoreValue indexed?
-syn keyword JanetCoreValue instance-of?
 syn keyword JanetCoreValue int
 syn keyword JanetCoreValue integer?
 syn keyword JanetCoreValue interleave
+syn keyword JanetCoreValue interpose
 syn keyword JanetCoreValue invert
 syn keyword JanetCoreValue janet.version
 syn keyword JanetCoreValue juxt
 syn keyword JanetCoreValue juxt*
+syn keyword JanetCoreValue keep
 syn keyword JanetCoreValue keys
 syn keyword JanetCoreValue keyword?
+syn keyword JanetCoreValue kvs
+syn keyword JanetCoreValue last
 syn keyword JanetCoreValue length
 syn keyword JanetCoreValue let
 syn keyword JanetCoreValue loop
@@ -266,6 +269,7 @@ syn keyword JanetCoreValue print
 syn keyword JanetCoreValue process.args
 syn keyword JanetCoreValue product
 syn keyword JanetCoreValue put
+syn keyword JanetCoreValue qq
 syn keyword JanetCoreValue range
 syn keyword JanetCoreValue real
 syn keyword JanetCoreValue real?
@@ -278,7 +282,8 @@ syn keyword JanetCoreValue run-context
 syn keyword JanetCoreValue scan-integer
 syn keyword JanetCoreValue scan-number
 syn keyword JanetCoreValue scan-real
-syn keyword JanetCoreValue some?
+syn keyword JanetCoreValue seq
+syn keyword JanetCoreValue some
 syn keyword JanetCoreValue sort
 syn keyword JanetCoreValue sorted
 syn keyword JanetCoreValue stderr
@@ -330,7 +335,6 @@ syn keyword JanetCoreValue values
 syn keyword JanetCoreValue varglobal
 syn keyword JanetCoreValue when
 syn keyword JanetCoreValue when-let
-syn keyword JanetCoreValue wrap-call
 syn keyword JanetCoreValue yield
 syn keyword JanetCoreValue zero?
 syn keyword JanetCoreValue zipcoll
