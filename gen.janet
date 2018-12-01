@@ -1,2 +1,2 @@
 (loop [sym :in (all-symbols)]
-  (print "syn keyword JanetCoreValue " (string.replace "|" "\\|" sym)))
+  (print "syn keyword JanetCoreValue " (string/replace "|" "\\|" sym)))
