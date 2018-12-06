@@ -39,7 +39,7 @@ syn keyword JanetSpecialForm var
 syn keyword JanetSpecialForm quote
 syn keyword JanetSpecialForm quasiquote
 syn keyword JanetSpecialForm unquote
-syn keyword JanetSpecialForm unquote-splicing
+syn keyword JanetSpecialForm splice
 
 " Not really special forms, but useful to highlight
 " All symbols from janet core.
@@ -139,6 +139,7 @@ syn keyword JanetCoreValue empty?
 syn keyword JanetCoreValue env-lookup
 syn keyword JanetCoreValue error
 syn keyword JanetCoreValue eval
+syn keyword JanetCoreValue eval-string
 syn keyword JanetCoreValue even?
 syn keyword JanetCoreValue every?
 syn keyword JanetCoreValue extreme
