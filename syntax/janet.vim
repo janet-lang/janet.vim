@@ -114,6 +114,7 @@ syn keyword JanetCoreValue compile
 syn keyword JanetCoreValue complement
 syn keyword JanetCoreValue cond
 syn keyword JanetCoreValue coro
+syn keyword JanetCoreValue count
 syn keyword JanetCoreValue debug
 syn keyword JanetCoreValue dec
 syn keyword JanetCoreValue deep-not=
@@ -205,6 +206,7 @@ syn keyword JanetCoreValue make-env
 syn keyword JanetCoreValue map
 syn keyword JanetCoreValue mapcat
 syn keyword JanetCoreValue marshal
+syn keyword JanetCoreValue match
 syn keyword JanetCoreValue math/acos
 syn keyword JanetCoreValue math/asin
 syn keyword JanetCoreValue math/atan
