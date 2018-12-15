@@ -92,7 +92,6 @@ syn keyword JanetCoreValue array/push
 syn keyword JanetCoreValue array/slice
 syn keyword JanetCoreValue array?
 syn keyword JanetCoreValue asm
-syn keyword JanetCoreValue atomic?
 syn keyword JanetCoreValue bnot
 syn keyword JanetCoreValue boolean?
 syn keyword JanetCoreValue buffer
@@ -116,6 +115,13 @@ syn keyword JanetCoreValue cond
 syn keyword JanetCoreValue coro
 syn keyword JanetCoreValue count
 syn keyword JanetCoreValue debug
+syn keyword JanetCoreValue debug/arg-stack
+syn keyword JanetCoreValue debug/break
+syn keyword JanetCoreValue debug/fbreak
+syn keyword JanetCoreValue debug/lineage
+syn keyword JanetCoreValue debug/stack
+syn keyword JanetCoreValue debug/unbreak
+syn keyword JanetCoreValue debug/unfbreak
 syn keyword JanetCoreValue dec
 syn keyword JanetCoreValue deep-not=
 syn keyword JanetCoreValue deep=
@@ -146,11 +152,9 @@ syn keyword JanetCoreValue every?
 syn keyword JanetCoreValue extreme
 syn keyword JanetCoreValue false?
 syn keyword JanetCoreValue fiber/current
-syn keyword JanetCoreValue fiber/lineage
 syn keyword JanetCoreValue fiber/maxstack
 syn keyword JanetCoreValue fiber/new
 syn keyword JanetCoreValue fiber/setmaxstack
-syn keyword JanetCoreValue fiber/stack
 syn keyword JanetCoreValue fiber/status
 syn keyword JanetCoreValue fiber?
 syn keyword JanetCoreValue file/close
@@ -177,6 +181,7 @@ syn keyword JanetCoreValue gensym
 syn keyword JanetCoreValue get
 syn keyword JanetCoreValue getline
 syn keyword JanetCoreValue hash
+syn keyword JanetCoreValue idempotent?
 syn keyword JanetCoreValue identity
 syn keyword JanetCoreValue if-let
 syn keyword JanetCoreValue if-not
@@ -189,6 +194,7 @@ syn keyword JanetCoreValue integer?
 syn keyword JanetCoreValue interleave
 syn keyword JanetCoreValue interpose
 syn keyword JanetCoreValue invert
+syn keyword JanetCoreValue janet/build
 syn keyword JanetCoreValue janet/version
 syn keyword JanetCoreValue juxt
 syn keyword JanetCoreValue juxt*
@@ -207,6 +213,7 @@ syn keyword JanetCoreValue map
 syn keyword JanetCoreValue mapcat
 syn keyword JanetCoreValue marshal
 syn keyword JanetCoreValue match
+syn keyword JanetCoreValue match-1
 syn keyword JanetCoreValue math/acos
 syn keyword JanetCoreValue math/asin
 syn keyword JanetCoreValue math/atan
@@ -287,6 +294,7 @@ syn keyword JanetCoreValue run-context
 syn keyword JanetCoreValue scan-integer
 syn keyword JanetCoreValue scan-number
 syn keyword JanetCoreValue scan-real
+syn keyword JanetCoreValue sentinel
 syn keyword JanetCoreValue seq
 syn keyword JanetCoreValue some
 syn keyword JanetCoreValue sort
@@ -341,6 +349,7 @@ syn keyword JanetCoreValue values
 syn keyword JanetCoreValue varglobal
 syn keyword JanetCoreValue when
 syn keyword JanetCoreValue when-let
+syn keyword JanetCoreValue with-idemp
 syn keyword JanetCoreValue yield
 syn keyword JanetCoreValue zero?
 syn keyword JanetCoreValue zipcoll
