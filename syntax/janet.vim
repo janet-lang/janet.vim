@@ -40,13 +40,12 @@ syn keyword JanetSpecialForm quote
 syn keyword JanetSpecialForm quasiquote
 syn keyword JanetSpecialForm unquote
 syn keyword JanetSpecialForm splice
+syn keyword JanetSpecialForm set
 
 " Not really special forms, but useful to highlight
 " All symbols from janet core.
 syn keyword JanetCoreValue %
 syn keyword JanetCoreValue %=
-syn keyword JanetCoreValue &
-syn keyword JanetCoreValue &=
 syn keyword JanetCoreValue *
 syn keyword JanetCoreValue *=
 syn keyword JanetCoreValue *doc-width*
@@ -62,19 +61,11 @@ syn keyword JanetCoreValue ->>
 syn keyword JanetCoreValue /
 syn keyword JanetCoreValue /=
 syn keyword JanetCoreValue <
-syn keyword JanetCoreValue <<
-syn keyword JanetCoreValue <<=
 syn keyword JanetCoreValue <=
 syn keyword JanetCoreValue =
 syn keyword JanetCoreValue ==
 syn keyword JanetCoreValue >
 syn keyword JanetCoreValue >=
-syn keyword JanetCoreValue >>
-syn keyword JanetCoreValue >>=
-syn keyword JanetCoreValue >>>
-syn keyword JanetCoreValue >>>=
-syn keyword JanetCoreValue ^
-syn keyword JanetCoreValue ^=
 syn keyword JanetCoreValue _env
 syn keyword JanetCoreValue abstract?
 syn keyword JanetCoreValue all
@@ -92,8 +83,13 @@ syn keyword JanetCoreValue array/push
 syn keyword JanetCoreValue array/slice
 syn keyword JanetCoreValue array?
 syn keyword JanetCoreValue asm
+syn keyword JanetCoreValue band
+syn keyword JanetCoreValue blshift
 syn keyword JanetCoreValue bnot
 syn keyword JanetCoreValue boolean?
+syn keyword JanetCoreValue bor
+syn keyword JanetCoreValue brshift
+syn keyword JanetCoreValue brushift
 syn keyword JanetCoreValue buffer
 syn keyword JanetCoreValue buffer/clear
 syn keyword JanetCoreValue buffer/new
@@ -103,6 +99,7 @@ syn keyword JanetCoreValue buffer/push-integer
 syn keyword JanetCoreValue buffer/push-string
 syn keyword JanetCoreValue buffer/slice
 syn keyword JanetCoreValue buffer?
+syn keyword JanetCoreValue bxor
 syn keyword JanetCoreValue bytes?
 syn keyword JanetCoreValue callable?
 syn keyword JanetCoreValue case
@@ -353,8 +350,6 @@ syn keyword JanetCoreValue with-idemp
 syn keyword JanetCoreValue yield
 syn keyword JanetCoreValue zero?
 syn keyword JanetCoreValue zipcoll
-syn keyword JanetCoreValue \|
-syn keyword JanetCoreValue \|=
 
 " Janet Symbols
 let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z|\x80-\U10FFFF'
