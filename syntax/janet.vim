@@ -99,8 +99,8 @@ syn keyword JanetCoreValue buffer/clear
 syn keyword JanetCoreValue buffer/new
 syn keyword JanetCoreValue buffer/popn
 syn keyword JanetCoreValue buffer/push-byte
-syn keyword JanetCoreValue buffer/push-integer
 syn keyword JanetCoreValue buffer/push-string
+syn keyword JanetCoreValue buffer/push-word
 syn keyword JanetCoreValue buffer/slice
 syn keyword JanetCoreValue buffer?
 syn keyword JanetCoreValue bxor
@@ -190,8 +190,6 @@ syn keyword JanetCoreValue import
 syn keyword JanetCoreValue import*
 syn keyword JanetCoreValue inc
 syn keyword JanetCoreValue indexed?
-syn keyword JanetCoreValue int
-syn keyword JanetCoreValue integer?
 syn keyword JanetCoreValue interleave
 syn keyword JanetCoreValue interpose
 syn keyword JanetCoreValue invert
@@ -286,17 +284,13 @@ syn keyword JanetCoreValue process/args
 syn keyword JanetCoreValue product
 syn keyword JanetCoreValue put
 syn keyword JanetCoreValue range
-syn keyword JanetCoreValue real
-syn keyword JanetCoreValue real?
 syn keyword JanetCoreValue reduce
 syn keyword JanetCoreValue repl
 syn keyword JanetCoreValue require
 syn keyword JanetCoreValue resume
 syn keyword JanetCoreValue reverse
 syn keyword JanetCoreValue run-context
-syn keyword JanetCoreValue scan-integer
 syn keyword JanetCoreValue scan-number
-syn keyword JanetCoreValue scan-real
 syn keyword JanetCoreValue sentinel
 syn keyword JanetCoreValue seq
 syn keyword JanetCoreValue some
@@ -339,6 +333,7 @@ syn keyword JanetCoreValue table?
 syn keyword JanetCoreValue take-until
 syn keyword JanetCoreValue take-while
 syn keyword JanetCoreValue true?
+syn keyword JanetCoreValue try
 syn keyword JanetCoreValue tuple
 syn keyword JanetCoreValue tuple/append
 syn keyword JanetCoreValue tuple/prepend
