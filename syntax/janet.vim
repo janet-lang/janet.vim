@@ -277,8 +277,8 @@ syn keyword JanetCoreValue parser/status
 syn keyword JanetCoreValue parser/where
 syn keyword JanetCoreValue partial
 syn keyword JanetCoreValue pos?
-syn keyword JanetCoreValue post-walk
-syn keyword JanetCoreValue pre-walk
+syn keyword JanetCoreValue postwalk
+syn keyword JanetCoreValue prewalk
 syn keyword JanetCoreValue print
 syn keyword JanetCoreValue process/args
 syn keyword JanetCoreValue product
