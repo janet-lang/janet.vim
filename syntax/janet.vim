@@ -71,7 +71,7 @@ syn keyword JanetCoreValue >=
 syn keyword JanetCoreValue _env
 syn keyword JanetCoreValue abstract?
 syn keyword JanetCoreValue all
-syn keyword JanetCoreValue all-symbols
+syn keyword JanetCoreValue all-bindings
 syn keyword JanetCoreValue and
 syn keyword JanetCoreValue apply
 syn keyword JanetCoreValue array
@@ -199,6 +199,7 @@ syn keyword JanetCoreValue juxt
 syn keyword JanetCoreValue juxt*
 syn keyword JanetCoreValue keep
 syn keyword JanetCoreValue keys
+syn keyword JanetCoreValue keyword
 syn keyword JanetCoreValue keyword?
 syn keyword JanetCoreValue kvs
 syn keyword JanetCoreValue last
@@ -270,6 +271,7 @@ syn keyword JanetCoreValue parser/byte
 syn keyword JanetCoreValue parser/consume
 syn keyword JanetCoreValue parser/error
 syn keyword JanetCoreValue parser/flush
+syn keyword JanetCoreValue parser/has-more
 syn keyword JanetCoreValue parser/new
 syn keyword JanetCoreValue parser/produce
 syn keyword JanetCoreValue parser/state
@@ -349,6 +351,7 @@ syn keyword JanetCoreValue walk
 syn keyword JanetCoreValue when
 syn keyword JanetCoreValue when-let
 syn keyword JanetCoreValue with-idemp
+syn keyword JanetCoreValue with-syms
 syn keyword JanetCoreValue yield
 syn keyword JanetCoreValue zero?
 syn keyword JanetCoreValue zipcoll

@@ -1,2 +1,2 @@
-(loop [sym :in (all-symbols)]
+(loop [sym :in (all-bindings)]
   (print "syn keyword JanetCoreValue " (string/replace "|" "\\|" sym)))
