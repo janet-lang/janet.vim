@@ -95,8 +95,14 @@ syn keyword JanetCoreValue bor
 syn keyword JanetCoreValue brshift
 syn keyword JanetCoreValue brushift
 syn keyword JanetCoreValue buffer
+syn keyword JanetCoreValue buffer/bit
+syn keyword JanetCoreValue buffer/bit-clear
+syn keyword JanetCoreValue buffer/bit-set
+syn keyword JanetCoreValue buffer/bit-toggle
+syn keyword JanetCoreValue buffer/blit
 syn keyword JanetCoreValue buffer/clear
 syn keyword JanetCoreValue buffer/new
+syn keyword JanetCoreValue buffer/new-filled
 syn keyword JanetCoreValue buffer/popn
 syn keyword JanetCoreValue buffer/push-byte
 syn keyword JanetCoreValue buffer/push-string
@@ -236,6 +242,7 @@ syn keyword JanetCoreValue max
 syn keyword JanetCoreValue max-order
 syn keyword JanetCoreValue merge
 syn keyword JanetCoreValue merge-into
+syn keyword JanetCoreValue meta
 syn keyword JanetCoreValue min
 syn keyword JanetCoreValue min-order
 syn keyword JanetCoreValue module/find
@@ -278,8 +285,10 @@ syn keyword JanetCoreValue parser/state
 syn keyword JanetCoreValue parser/status
 syn keyword JanetCoreValue parser/where
 syn keyword JanetCoreValue partial
+syn keyword JanetCoreValue peg/match
 syn keyword JanetCoreValue pos?
 syn keyword JanetCoreValue postwalk
+syn keyword JanetCoreValue pp
 syn keyword JanetCoreValue prewalk
 syn keyword JanetCoreValue print
 syn keyword JanetCoreValue process/args
