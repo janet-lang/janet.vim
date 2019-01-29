@@ -68,7 +68,6 @@ syn keyword JanetCoreValue =
 syn keyword JanetCoreValue ==
 syn keyword JanetCoreValue >
 syn keyword JanetCoreValue >=
-syn keyword JanetCoreValue _env
 syn keyword JanetCoreValue abstract?
 syn keyword JanetCoreValue all
 syn keyword JanetCoreValue all-bindings
@@ -219,7 +218,6 @@ syn keyword JanetCoreValue map
 syn keyword JanetCoreValue mapcat
 syn keyword JanetCoreValue marshal
 syn keyword JanetCoreValue match
-syn keyword JanetCoreValue match-1
 syn keyword JanetCoreValue math/acos
 syn keyword JanetCoreValue math/asin
 syn keyword JanetCoreValue math/atan
@@ -245,7 +243,10 @@ syn keyword JanetCoreValue merge-into
 syn keyword JanetCoreValue meta
 syn keyword JanetCoreValue min
 syn keyword JanetCoreValue min-order
+syn keyword JanetCoreValue module/*syspath*
+syn keyword JanetCoreValue module/cache
 syn keyword JanetCoreValue module/find
+syn keyword JanetCoreValue module/loading
 syn keyword JanetCoreValue module/native-paths
 syn keyword JanetCoreValue module/paths
 syn keyword JanetCoreValue native
@@ -265,6 +266,7 @@ syn keyword JanetCoreValue order>
 syn keyword JanetCoreValue order>=
 syn keyword JanetCoreValue os/clock
 syn keyword JanetCoreValue os/cwd
+syn keyword JanetCoreValue os/date
 syn keyword JanetCoreValue os/execute
 syn keyword JanetCoreValue os/exit
 syn keyword JanetCoreValue os/getenv
@@ -285,6 +287,7 @@ syn keyword JanetCoreValue parser/state
 syn keyword JanetCoreValue parser/status
 syn keyword JanetCoreValue parser/where
 syn keyword JanetCoreValue partial
+syn keyword JanetCoreValue peg/compile
 syn keyword JanetCoreValue peg/match
 syn keyword JanetCoreValue pos?
 syn keyword JanetCoreValue postwalk
@@ -302,11 +305,12 @@ syn keyword JanetCoreValue resume
 syn keyword JanetCoreValue reverse
 syn keyword JanetCoreValue run-context
 syn keyword JanetCoreValue scan-number
-syn keyword JanetCoreValue sentinel
 syn keyword JanetCoreValue seq
+syn keyword JanetCoreValue slurp
 syn keyword JanetCoreValue some
 syn keyword JanetCoreValue sort
 syn keyword JanetCoreValue sorted
+syn keyword JanetCoreValue spit
 syn keyword JanetCoreValue status-pp
 syn keyword JanetCoreValue stderr
 syn keyword JanetCoreValue stdin
