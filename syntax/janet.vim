@@ -86,6 +86,8 @@ syn keyword JanetCoreValue array?
 syn keyword JanetCoreValue as->
 syn keyword JanetCoreValue as?->
 syn keyword JanetCoreValue asm
+syn keyword JanetCoreValue bad-compile
+syn keyword JanetCoreValue bad-parse
 syn keyword JanetCoreValue band
 syn keyword JanetCoreValue blshift
 syn keyword JanetCoreValue bnot
@@ -126,6 +128,7 @@ syn keyword JanetCoreValue debug/break
 syn keyword JanetCoreValue debug/fbreak
 syn keyword JanetCoreValue debug/lineage
 syn keyword JanetCoreValue debug/stack
+syn keyword JanetCoreValue debug/stacktrace
 syn keyword JanetCoreValue debug/unbreak
 syn keyword JanetCoreValue debug/unfbreak
 syn keyword JanetCoreValue dec
@@ -218,11 +221,14 @@ syn keyword JanetCoreValue map
 syn keyword JanetCoreValue mapcat
 syn keyword JanetCoreValue marshal
 syn keyword JanetCoreValue match
+syn keyword JanetCoreValue math/abs
 syn keyword JanetCoreValue math/acos
 syn keyword JanetCoreValue math/asin
 syn keyword JanetCoreValue math/atan
+syn keyword JanetCoreValue math/atan2
 syn keyword JanetCoreValue math/ceil
 syn keyword JanetCoreValue math/cos
+syn keyword JanetCoreValue math/cosh
 syn keyword JanetCoreValue math/e
 syn keyword JanetCoreValue math/exp
 syn keyword JanetCoreValue math/floor
@@ -234,8 +240,10 @@ syn keyword JanetCoreValue math/pow
 syn keyword JanetCoreValue math/random
 syn keyword JanetCoreValue math/seedrandom
 syn keyword JanetCoreValue math/sin
+syn keyword JanetCoreValue math/sinh
 syn keyword JanetCoreValue math/sqrt
 syn keyword JanetCoreValue math/tan
+syn keyword JanetCoreValue math/tanh
 syn keyword JanetCoreValue max
 syn keyword JanetCoreValue max-order
 syn keyword JanetCoreValue merge
@@ -281,12 +289,14 @@ syn keyword JanetCoreValue parser/consume
 syn keyword JanetCoreValue parser/error
 syn keyword JanetCoreValue parser/flush
 syn keyword JanetCoreValue parser/has-more
+syn keyword JanetCoreValue parser/insert
 syn keyword JanetCoreValue parser/new
 syn keyword JanetCoreValue parser/produce
 syn keyword JanetCoreValue parser/state
 syn keyword JanetCoreValue parser/status
 syn keyword JanetCoreValue parser/where
 syn keyword JanetCoreValue partial
+syn keyword JanetCoreValue partition
 syn keyword JanetCoreValue peg/compile
 syn keyword JanetCoreValue peg/match
 syn keyword JanetCoreValue pos?
@@ -311,7 +321,6 @@ syn keyword JanetCoreValue some
 syn keyword JanetCoreValue sort
 syn keyword JanetCoreValue sorted
 syn keyword JanetCoreValue spit
-syn keyword JanetCoreValue status-pp
 syn keyword JanetCoreValue stderr
 syn keyword JanetCoreValue stdin
 syn keyword JanetCoreValue stdout
@@ -351,8 +360,10 @@ syn keyword JanetCoreValue true?
 syn keyword JanetCoreValue try
 syn keyword JanetCoreValue tuple
 syn keyword JanetCoreValue tuple/append
+syn keyword JanetCoreValue tuple/brackets
 syn keyword JanetCoreValue tuple/prepend
 syn keyword JanetCoreValue tuple/slice
+syn keyword JanetCoreValue tuple/type
 syn keyword JanetCoreValue tuple?
 syn keyword JanetCoreValue type
 syn keyword JanetCoreValue unless
