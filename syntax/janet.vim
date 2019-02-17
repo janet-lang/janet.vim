@@ -102,6 +102,7 @@ syn keyword JanetCoreValue buffer/bit-set
 syn keyword JanetCoreValue buffer/bit-toggle
 syn keyword JanetCoreValue buffer/blit
 syn keyword JanetCoreValue buffer/clear
+syn keyword JanetCoreValue buffer/format
 syn keyword JanetCoreValue buffer/new
 syn keyword JanetCoreValue buffer/new-filled
 syn keyword JanetCoreValue buffer/popn
@@ -213,10 +214,12 @@ syn keyword JanetCoreValue kvs
 syn keyword JanetCoreValue last
 syn keyword JanetCoreValue length
 syn keyword JanetCoreValue let
+syn keyword JanetCoreValue load-image
 syn keyword JanetCoreValue loop
 syn keyword JanetCoreValue macex
 syn keyword JanetCoreValue macex1
 syn keyword JanetCoreValue make-env
+syn keyword JanetCoreValue make-image
 syn keyword JanetCoreValue map
 syn keyword JanetCoreValue mapcat
 syn keyword JanetCoreValue marshal
@@ -255,7 +258,6 @@ syn keyword JanetCoreValue module/*syspath*
 syn keyword JanetCoreValue module/cache
 syn keyword JanetCoreValue module/find
 syn keyword JanetCoreValue module/loading
-syn keyword JanetCoreValue module/native-paths
 syn keyword JanetCoreValue module/paths
 syn keyword JanetCoreValue native
 syn keyword JanetCoreValue neg?
@@ -331,10 +333,9 @@ syn keyword JanetCoreValue string/bytes
 syn keyword JanetCoreValue string/check-set
 syn keyword JanetCoreValue string/find
 syn keyword JanetCoreValue string/find-all
+syn keyword JanetCoreValue string/format
 syn keyword JanetCoreValue string/from-bytes
 syn keyword JanetCoreValue string/join
-syn keyword JanetCoreValue string/number
-syn keyword JanetCoreValue string/pretty
 syn keyword JanetCoreValue string/repeat
 syn keyword JanetCoreValue string/replace
 syn keyword JanetCoreValue string/replace-all
