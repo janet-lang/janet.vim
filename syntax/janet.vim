@@ -81,6 +81,7 @@ syn keyword JanetCoreValue array/new
 syn keyword JanetCoreValue array/peek
 syn keyword JanetCoreValue array/pop
 syn keyword JanetCoreValue array/push
+syn keyword JanetCoreValue array/remove
 syn keyword JanetCoreValue array/slice
 syn keyword JanetCoreValue array?
 syn keyword JanetCoreValue as->
@@ -113,7 +114,6 @@ syn keyword JanetCoreValue buffer/slice
 syn keyword JanetCoreValue buffer?
 syn keyword JanetCoreValue bxor
 syn keyword JanetCoreValue bytes?
-syn keyword JanetCoreValue callable?
 syn keyword JanetCoreValue case
 syn keyword JanetCoreValue cfunction?
 syn keyword JanetCoreValue comment
@@ -288,6 +288,7 @@ syn keyword JanetCoreValue os/which
 syn keyword JanetCoreValue pairs
 syn keyword JanetCoreValue parser/byte
 syn keyword JanetCoreValue parser/consume
+syn keyword JanetCoreValue parser/eof
 syn keyword JanetCoreValue parser/error
 syn keyword JanetCoreValue parser/flush
 syn keyword JanetCoreValue parser/has-more
@@ -357,12 +358,17 @@ syn keyword JanetCoreValue table/to-struct
 syn keyword JanetCoreValue table?
 syn keyword JanetCoreValue take-until
 syn keyword JanetCoreValue take-while
+syn keyword JanetCoreValue tarray/buffer
+syn keyword JanetCoreValue tarray/copy-bytes
+syn keyword JanetCoreValue tarray/length
+syn keyword JanetCoreValue tarray/new
+syn keyword JanetCoreValue tarray/properties
+syn keyword JanetCoreValue tarray/slice
+syn keyword JanetCoreValue tarray/swap-bytes
 syn keyword JanetCoreValue true?
 syn keyword JanetCoreValue try
 syn keyword JanetCoreValue tuple
-syn keyword JanetCoreValue tuple/append
 syn keyword JanetCoreValue tuple/brackets
-syn keyword JanetCoreValue tuple/prepend
 syn keyword JanetCoreValue tuple/slice
 syn keyword JanetCoreValue tuple/type
 syn keyword JanetCoreValue tuple?
@@ -375,7 +381,6 @@ syn keyword JanetCoreValue varglobal
 syn keyword JanetCoreValue walk
 syn keyword JanetCoreValue when
 syn keyword JanetCoreValue when-let
-syn keyword JanetCoreValue with-idemp
 syn keyword JanetCoreValue with-syms
 syn keyword JanetCoreValue yield
 syn keyword JanetCoreValue zero?
