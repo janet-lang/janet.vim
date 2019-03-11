@@ -41,6 +41,7 @@ syn keyword JanetSpecialForm quasiquote
 syn keyword JanetSpecialForm unquote
 syn keyword JanetSpecialForm splice
 syn keyword JanetSpecialForm set
+syn keyword JanetSpecialForm break
 
 " Not really special forms, but useful to highlight
 " All symbols from janet core.
