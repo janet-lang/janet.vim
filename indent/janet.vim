@@ -28,7 +28,7 @@ if exists("*searchpairpos")
 	endif
 
 	if !exists('g:janet_fuzzy_indent_patterns')
-		let g:janet_fuzzy_indent_patterns = ['^def', '^let', '^while', '^if', '^unless', '^with', '^fn$', '^var$', '^switch$', '^case$', '^for$', '^loop$']
+		let g:janet_fuzzy_indent_patterns = ['^def', '^let', '^while', '^if', '^unless', '^with', '^fn$', '^var$', '^each$', '^case$', '^for$', '^loop$']
 	endif
 
 	if !exists('g:janet_fuzzy_indent_blacklist')
