@@ -49,8 +49,6 @@ syn keyword JanetCoreValue %
 syn keyword JanetCoreValue %=
 syn keyword JanetCoreValue *
 syn keyword JanetCoreValue *=
-syn keyword JanetCoreValue *doc-width*
-syn keyword JanetCoreValue *env*
 syn keyword JanetCoreValue +
 syn keyword JanetCoreValue ++
 syn keyword JanetCoreValue +=
@@ -152,6 +150,7 @@ syn keyword JanetCoreValue doc*
 syn keyword JanetCoreValue doc-format
 syn keyword JanetCoreValue drop-until
 syn keyword JanetCoreValue drop-while
+syn keyword JanetCoreValue dyn
 syn keyword JanetCoreValue each
 syn keyword JanetCoreValue empty?
 syn keyword JanetCoreValue env-lookup
@@ -163,8 +162,10 @@ syn keyword JanetCoreValue every?
 syn keyword JanetCoreValue extreme
 syn keyword JanetCoreValue false?
 syn keyword JanetCoreValue fiber/current
+syn keyword JanetCoreValue fiber/getenv
 syn keyword JanetCoreValue fiber/maxstack
 syn keyword JanetCoreValue fiber/new
+syn keyword JanetCoreValue fiber/setenv
 syn keyword JanetCoreValue fiber/setmaxstack
 syn keyword JanetCoreValue fiber/status
 syn keyword JanetCoreValue fiber?
@@ -254,7 +255,6 @@ syn keyword JanetCoreValue max
 syn keyword JanetCoreValue max-order
 syn keyword JanetCoreValue merge
 syn keyword JanetCoreValue merge-into
-syn keyword JanetCoreValue meta
 syn keyword JanetCoreValue min
 syn keyword JanetCoreValue min-order
 syn keyword JanetCoreValue module/*syspath*
@@ -318,6 +318,7 @@ syn keyword JanetCoreValue postwalk
 syn keyword JanetCoreValue pp
 syn keyword JanetCoreValue prewalk
 syn keyword JanetCoreValue print
+syn keyword JanetCoreValue printf
 syn keyword JanetCoreValue process/args
 syn keyword JanetCoreValue product
 syn keyword JanetCoreValue put
@@ -330,6 +331,7 @@ syn keyword JanetCoreValue reverse
 syn keyword JanetCoreValue run-context
 syn keyword JanetCoreValue scan-number
 syn keyword JanetCoreValue seq
+syn keyword JanetCoreValue setdyn
 syn keyword JanetCoreValue slurp
 syn keyword JanetCoreValue some
 syn keyword JanetCoreValue sort
