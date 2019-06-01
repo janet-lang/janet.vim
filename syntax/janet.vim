@@ -209,6 +209,7 @@ syn keyword JanetCoreValue interleave
 syn keyword JanetCoreValue interpose
 syn keyword JanetCoreValue invert
 syn keyword JanetCoreValue janet/build
+syn keyword JanetCoreValue janet/config-bits
 syn keyword JanetCoreValue janet/version
 syn keyword JanetCoreValue juxt
 syn keyword JanetCoreValue juxt*
@@ -291,6 +292,7 @@ syn keyword JanetCoreValue os/exit
 syn keyword JanetCoreValue os/getenv
 syn keyword JanetCoreValue os/link
 syn keyword JanetCoreValue os/mkdir
+syn keyword JanetCoreValue os/rename
 syn keyword JanetCoreValue os/rm
 syn keyword JanetCoreValue os/rmdir
 syn keyword JanetCoreValue os/setenv
