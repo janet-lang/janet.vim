@@ -172,6 +172,8 @@ syn keyword JanetCoreValue fiber/setmaxstack
 syn keyword JanetCoreValue fiber/status
 syn keyword JanetCoreValue fiber?
 syn keyword JanetCoreValue file/close
+syn keyword JanetCoreValue file/fdopen
+syn keyword JanetCoreValue file/fileno
 syn keyword JanetCoreValue file/flush
 syn keyword JanetCoreValue file/open
 syn keyword JanetCoreValue file/popen
@@ -260,9 +262,8 @@ syn keyword JanetCoreValue merge
 syn keyword JanetCoreValue merge-into
 syn keyword JanetCoreValue min
 syn keyword JanetCoreValue min-order
-syn keyword JanetCoreValue module/*headerpath*
-syn keyword JanetCoreValue module/*syspath*
 syn keyword JanetCoreValue module/cache
+syn keyword JanetCoreValue module/expand-path
 syn keyword JanetCoreValue module/find
 syn keyword JanetCoreValue module/loaders
 syn keyword JanetCoreValue module/loading
@@ -304,6 +305,7 @@ syn keyword JanetCoreValue os/touch
 syn keyword JanetCoreValue os/which
 syn keyword JanetCoreValue pairs
 syn keyword JanetCoreValue parser/byte
+syn keyword JanetCoreValue parser/clone
 syn keyword JanetCoreValue parser/consume
 syn keyword JanetCoreValue parser/eof
 syn keyword JanetCoreValue parser/error
