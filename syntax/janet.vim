@@ -327,8 +327,8 @@ syn keyword JanetCoreValue pp
 syn keyword JanetCoreValue prewalk
 syn keyword JanetCoreValue print
 syn keyword JanetCoreValue printf
-syn keyword JanetCoreValue process/args
 syn keyword JanetCoreValue product
+syn keyword JanetCoreValue propagate
 syn keyword JanetCoreValue put
 syn keyword JanetCoreValue range
 syn keyword JanetCoreValue reduce
@@ -376,6 +376,7 @@ syn keyword JanetCoreValue sum
 syn keyword JanetCoreValue symbol
 syn keyword JanetCoreValue symbol?
 syn keyword JanetCoreValue table
+syn keyword JanetCoreValue table/clone
 syn keyword JanetCoreValue table/getproto
 syn keyword JanetCoreValue table/new
 syn keyword JanetCoreValue table/rawget
@@ -406,11 +407,13 @@ syn keyword JanetCoreValue unless
 syn keyword JanetCoreValue unmarshal
 syn keyword JanetCoreValue untrace
 syn keyword JanetCoreValue update
+syn keyword JanetCoreValue use
 syn keyword JanetCoreValue values
 syn keyword JanetCoreValue varglobal
 syn keyword JanetCoreValue walk
 syn keyword JanetCoreValue when
 syn keyword JanetCoreValue when-let
+syn keyword JanetCoreValue with
 syn keyword JanetCoreValue with-dyns
 syn keyword JanetCoreValue with-syms
 syn keyword JanetCoreValue yield
