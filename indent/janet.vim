@@ -47,6 +47,8 @@ if exists("*searchpairpos")
 		let g:janet_align_subforms = 0
 	endif
 
+	let s:janet_loop_head_keywords = [ ':iterate', ':range', ':down', ':keys', ':in', ':generate', ':modifier', ':while', ':until', ':let', ':before', ':after', ':repeat', ':when' ]
+
 	function! s:syn_id_name()
 		return synIDattr(synID(line("."), col("."), 0), "name")
 	endfunction
@@ -158,6 +160,18 @@ if exists("*searchpairpos")
 		let i = s:check_for_string()
 		if i > -1
 			return [0, i + !!g:janet_align_multiline_strings]
+		endif
+
+		" Handle janet loop head keywords
+		if s:syn_id_name() =~? 'JanetLoopHead'
+			let lnum = prevnonblank(line('.') - 1)
+			let prev_line = getline(lnum)
+			let joined_keywords = join(s:janet_loop_head_keywords, '|')
+			let match_janet_loop_head_keyword = '\v' . joined_keywords
+			let m = match(prev_line, match_janet_loop_head_keyword)
+			if m > 0
+				return [0, m]
+			endif
 		endif
 
 		call cursor(0, 1)

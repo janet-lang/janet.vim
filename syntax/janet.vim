@@ -24,9 +24,9 @@ syntax region JanetBuffer matchgroup=JanetStringDelimiter start=/@"/ skip=/\\\\\
 syntax region JanetString matchgroup=JanetStringDelimiter start="\z(`\+\)" end="\z1" contains=@Spell
 syntax region JanetBuffer matchgroup=JanetStringDelimiter start="@\z(`\+\)" end="\z1" contains=@Spell
 
-syn keyword JanetConstant nil 
+syn keyword JanetConstant nil
 
-syn keyword JanetBoolean true 
+syn keyword JanetBoolean true
 syn keyword JanetBoolean false
 
 " Janet special forms
@@ -446,7 +446,7 @@ call s:syntaxNumber('0x', '\&', '0123456789abcdef')
 unlet! s:radix_chars s:radix
 
 " -*- TOP CLUSTER -*-
-syntax cluster JanetTop contains=@Spell,JanetComment,JanetConstant,JanetQuote,JanetKeyword,JanetSymbol,JanetNumber,JanetString,JanetBuffer,JanetTuple,JanetArray,JanetTable,JanetStruct,JanetSpecialForm,JanetBoolean,JanetCoreValue
+syntax cluster JanetTop contains=@Spell,JanetComment,JanetConstant,JanetQuote,JanetKeyword,JanetSymbol,JanetNumber,JanetString,JanetBuffer,JanetTuple,JanetArray,JanetTable,JanetStruct,JanetSpecialForm,JanetBoolean,JanetCoreValue,JanetLoop
 
 syntax region JanetTuple matchgroup=JanetParen start="("  end=")" contains=@JanetTop fold
 syntax region JanetArray matchgroup=JanetParen start="@("  end=")" contains=@JanetTop fold
@@ -454,6 +454,10 @@ syntax region JanetTuple matchgroup=JanetParen start="\[" end="]" contains=@Jane
 syntax region JanetArray matchgroup=JanetParen start="@\[" end="]" contains=@JanetTop fold
 syntax region JanetTable matchgroup=JanetParen start="{"  end="}" contains=@JanetTop fold
 syntax region JanetStruct matchgroup=JanetParen start="@{"  end="}" contains=@JanetTop fold
+
+syntax region JanetLoopHead contained matchgroup=JanetParen start="\[" end="]" contains=JanetLoopKeyword,@JanetTop fold
+syntax keyword JanetLoopKeyword contained :iterate :range :down :keys :in :generate :modifier :while :until :let :before :after :repeat :when
+syntax keyword JanetLoop loop nextgroup=JanetLoopHead skipwhite
 
 " Highlight superfluous closing parens, brackets and braces.
 syntax match JanetError "]\|}\|)"
@@ -472,6 +476,9 @@ hi def link JanetString String
 hi def link JanetBuffer String
 hi def link JanetStringDelimiter String
 hi def link JanetBoolean Boolean
+hi def link JanetLoop Special
+hi def link JanetLoopKeyword Keyword
+hi def link JanetError Error
 
 hi def link JanetQuote SpecialChar
 hi def link JanetParen Delimiter
