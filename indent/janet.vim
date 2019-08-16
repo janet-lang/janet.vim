@@ -162,6 +162,18 @@ if exists("*searchpairpos")
 			return [0, i + !!g:janet_align_multiline_strings]
 		endif
 
+		" Handle janet loop head keywords
+		if s:syn_id_name() =~? 'JanetLoopHead'
+			let lnum = prevnonblank(line('.') - 1)
+			let prev_line = getline(lnum)
+			let joined_keywords = join(s:janet_loop_head_keywords, '|')
+			let match_janet_loop_head_keyword = '\v' . joined_keywords
+			let m = match(prev_line, match_janet_loop_head_keyword)
+			if m > 0
+				return [0, m]
+			endif
+		endif
+
 		call cursor(0, 1)
 
 		" Find the next enclosing [ or {. We can limit the second search
@@ -183,15 +195,15 @@ if exists("*searchpairpos")
 		" If the curly was not chosen, we take the bracket indent - if
 		" there was one.
 		if bracket[0] > paren[0] || bracket[1] > paren[1]
-			" Handle janet loop head keywords
-			if s:syn_id_name() =~? 'JanetLoopHead'
-				let lnum = prevnonblank(line('.') - 1)
-				let prev_line = getline(lnum)
+			let synIDs = map(synstack(bracket[0], bracket[1] + 1), 'synIDattr(v:val,"name")')
+			if index(synIDs, 'JanetLoopHead') >= 0
+				" We are in JanetLoopHead
+				let line = getline(bracket[0])
 				let joined_keywords = join(s:janet_loop_head_keywords, '|')
 				let match_janet_loop_head_keyword = '\v' . joined_keywords
-				let m = match(prev_line, match_janet_loop_head_keyword)
+				let m = match(line, match_janet_loop_head_keyword)
 				if m > 0
-					return [0, m]
+					return [bracket[0], m]
 				endif
 			endif
 			return bracket
