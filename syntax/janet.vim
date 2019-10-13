@@ -150,6 +150,7 @@ syn keyword JanetCoreValue doc
 syn keyword JanetCoreValue doc*
 syn keyword JanetCoreValue doc-format
 syn keyword JanetCoreValue dofile
+syn keyword JanetCoreValue drop
 syn keyword JanetCoreValue drop-until
 syn keyword JanetCoreValue drop-while
 syn keyword JanetCoreValue dyn
@@ -187,6 +188,7 @@ syn keyword JanetCoreValue first
 syn keyword JanetCoreValue flatten
 syn keyword JanetCoreValue flatten-into
 syn keyword JanetCoreValue for
+syn keyword JanetCoreValue freeze
 syn keyword JanetCoreValue frequencies
 syn keyword JanetCoreValue function?
 syn keyword JanetCoreValue gccollect
@@ -195,6 +197,7 @@ syn keyword JanetCoreValue gcsetinterval
 syn keyword JanetCoreValue generate
 syn keyword JanetCoreValue gensym
 syn keyword JanetCoreValue get
+syn keyword JanetCoreValue get-in
 syn keyword JanetCoreValue getline
 syn keyword JanetCoreValue hash
 syn keyword JanetCoreValue idempotent?
@@ -207,6 +210,7 @@ syn keyword JanetCoreValue inc
 syn keyword JanetCoreValue indexed?
 syn keyword JanetCoreValue int/s64
 syn keyword JanetCoreValue int/u64
+syn keyword JanetCoreValue int?
 syn keyword JanetCoreValue interleave
 syn keyword JanetCoreValue interpose
 syn keyword JanetCoreValue invert
@@ -258,6 +262,7 @@ syn keyword JanetCoreValue math/tan
 syn keyword JanetCoreValue math/tanh
 syn keyword JanetCoreValue max
 syn keyword JanetCoreValue max-order
+syn keyword JanetCoreValue mean
 syn keyword JanetCoreValue merge
 syn keyword JanetCoreValue merge-into
 syn keyword JanetCoreValue min
@@ -268,6 +273,7 @@ syn keyword JanetCoreValue module/find
 syn keyword JanetCoreValue module/loaders
 syn keyword JanetCoreValue module/loading
 syn keyword JanetCoreValue module/paths
+syn keyword JanetCoreValue nat?
 syn keyword JanetCoreValue native
 syn keyword JanetCoreValue neg?
 syn keyword JanetCoreValue next
@@ -283,6 +289,7 @@ syn keyword JanetCoreValue order<
 syn keyword JanetCoreValue order<=
 syn keyword JanetCoreValue order>
 syn keyword JanetCoreValue order>=
+syn keyword JanetCoreValue os/arch
 syn keyword JanetCoreValue os/cd
 syn keyword JanetCoreValue os/clock
 syn keyword JanetCoreValue os/cwd
@@ -330,6 +337,7 @@ syn keyword JanetCoreValue printf
 syn keyword JanetCoreValue product
 syn keyword JanetCoreValue propagate
 syn keyword JanetCoreValue put
+syn keyword JanetCoreValue put-in
 syn keyword JanetCoreValue range
 syn keyword JanetCoreValue reduce
 syn keyword JanetCoreValue repl
@@ -340,6 +348,8 @@ syn keyword JanetCoreValue run-context
 syn keyword JanetCoreValue scan-number
 syn keyword JanetCoreValue seq
 syn keyword JanetCoreValue setdyn
+syn keyword JanetCoreValue short-fn
+syn keyword JanetCoreValue slice
 syn keyword JanetCoreValue slurp
 syn keyword JanetCoreValue some
 syn keyword JanetCoreValue sort
@@ -383,6 +393,7 @@ syn keyword JanetCoreValue table/rawget
 syn keyword JanetCoreValue table/setproto
 syn keyword JanetCoreValue table/to-struct
 syn keyword JanetCoreValue table?
+syn keyword JanetCoreValue take
 syn keyword JanetCoreValue take-until
 syn keyword JanetCoreValue take-while
 syn keyword JanetCoreValue tarray/buffer
@@ -407,8 +418,10 @@ syn keyword JanetCoreValue unless
 syn keyword JanetCoreValue unmarshal
 syn keyword JanetCoreValue untrace
 syn keyword JanetCoreValue update
+syn keyword JanetCoreValue update-in
 syn keyword JanetCoreValue use
 syn keyword JanetCoreValue values
+syn keyword JanetCoreValue varfn
 syn keyword JanetCoreValue varglobal
 syn keyword JanetCoreValue walk
 syn keyword JanetCoreValue when
