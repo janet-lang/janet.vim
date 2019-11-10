@@ -116,6 +116,7 @@ syn keyword JanetCoreValue bxor
 syn keyword JanetCoreValue bytes?
 syn keyword JanetCoreValue case
 syn keyword JanetCoreValue cfunction?
+syn keyword JanetCoreValue cli-main
 syn keyword JanetCoreValue comment
 syn keyword JanetCoreValue comp
 syn keyword JanetCoreValue compile
@@ -157,6 +158,9 @@ syn keyword JanetCoreValue dyn
 syn keyword JanetCoreValue each
 syn keyword JanetCoreValue empty?
 syn keyword JanetCoreValue env-lookup
+syn keyword JanetCoreValue eprin
+syn keyword JanetCoreValue eprint
+syn keyword JanetCoreValue eprintf
 syn keyword JanetCoreValue error
 syn keyword JanetCoreValue eval
 syn keyword JanetCoreValue eval-string
@@ -206,6 +210,7 @@ syn keyword JanetCoreValue if-let
 syn keyword JanetCoreValue if-not
 syn keyword JanetCoreValue import
 syn keyword JanetCoreValue import*
+syn keyword JanetCoreValue in
 syn keyword JanetCoreValue inc
 syn keyword JanetCoreValue indexed?
 syn keyword JanetCoreValue int/s64
@@ -254,6 +259,9 @@ syn keyword JanetCoreValue math/log10
 syn keyword JanetCoreValue math/pi
 syn keyword JanetCoreValue math/pow
 syn keyword JanetCoreValue math/random
+syn keyword JanetCoreValue math/rng
+syn keyword JanetCoreValue math/rng-int
+syn keyword JanetCoreValue math/rng-uniform
 syn keyword JanetCoreValue math/seedrandom
 syn keyword JanetCoreValue math/sin
 syn keyword JanetCoreValue math/sinh
@@ -332,12 +340,14 @@ syn keyword JanetCoreValue pos?
 syn keyword JanetCoreValue postwalk
 syn keyword JanetCoreValue pp
 syn keyword JanetCoreValue prewalk
+syn keyword JanetCoreValue prin
 syn keyword JanetCoreValue print
 syn keyword JanetCoreValue printf
 syn keyword JanetCoreValue product
 syn keyword JanetCoreValue propagate
 syn keyword JanetCoreValue put
 syn keyword JanetCoreValue put-in
+syn keyword JanetCoreValue quit
 syn keyword JanetCoreValue range
 syn keyword JanetCoreValue reduce
 syn keyword JanetCoreValue repl
@@ -429,6 +439,7 @@ syn keyword JanetCoreValue when-let
 syn keyword JanetCoreValue with
 syn keyword JanetCoreValue with-dyns
 syn keyword JanetCoreValue with-syms
+syn keyword JanetCoreValue with-vars
 syn keyword JanetCoreValue yield
 syn keyword JanetCoreValue zero?
 syn keyword JanetCoreValue zipcoll
