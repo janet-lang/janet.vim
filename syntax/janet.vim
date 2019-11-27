@@ -9,6 +9,8 @@ endif
 let s:cpo_sav = &cpo
 set cpo&vim
 
+set fileencoding=utf-8
+
 if has("folding") && exists("g:janet_fold") && g:janet_fold > 0
     setlocal foldmethod=syntax
 endif
@@ -445,7 +447,14 @@ syn keyword JanetCoreValue zero?
 syn keyword JanetCoreValue zipcoll
 
 " Janet Symbols
-let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z|\x80-\U10FFFF'
+try
+    let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z|\x80-\U10FFFF'
+    " Make sure we support large character ranges in this vim version.
+    execute 'syn match JanetSymbolDud "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
+catch
+    let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z'
+endtry
+
 let s:symchar = '0-9' . s:symcharnodig
 execute 'syn match JanetSymbol "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
 execute 'syn match JanetKeyword "\v<:%([' . s:symchar . '])*>"'
