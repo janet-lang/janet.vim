@@ -9,8 +9,6 @@ endif
 let s:cpo_sav = &cpo
 set cpo&vim
 
-set fileencoding=utf-8
-
 if has("folding") && exists("g:janet_fold") && g:janet_fold > 0
     setlocal foldmethod=syntax
 endif
@@ -80,6 +78,7 @@ syn keyword JanetCoreValue array/concat
 syn keyword JanetCoreValue array/ensure
 syn keyword JanetCoreValue array/insert
 syn keyword JanetCoreValue array/new
+syn keyword JanetCoreValue array/new-filled
 syn keyword JanetCoreValue array/peek
 syn keyword JanetCoreValue array/pop
 syn keyword JanetCoreValue array/push
@@ -105,6 +104,7 @@ syn keyword JanetCoreValue buffer/bit-set
 syn keyword JanetCoreValue buffer/bit-toggle
 syn keyword JanetCoreValue buffer/blit
 syn keyword JanetCoreValue buffer/clear
+syn keyword JanetCoreValue buffer/fill
 syn keyword JanetCoreValue buffer/format
 syn keyword JanetCoreValue buffer/new
 syn keyword JanetCoreValue buffer/new-filled
@@ -123,6 +123,7 @@ syn keyword JanetCoreValue comment
 syn keyword JanetCoreValue comp
 syn keyword JanetCoreValue compile
 syn keyword JanetCoreValue complement
+syn keyword JanetCoreValue comptime
 syn keyword JanetCoreValue cond
 syn keyword JanetCoreValue coro
 syn keyword JanetCoreValue count
@@ -133,6 +134,7 @@ syn keyword JanetCoreValue debug/fbreak
 syn keyword JanetCoreValue debug/lineage
 syn keyword JanetCoreValue debug/stack
 syn keyword JanetCoreValue debug/stacktrace
+syn keyword JanetCoreValue debug/step
 syn keyword JanetCoreValue debug/unbreak
 syn keyword JanetCoreValue debug/unfbreak
 syn keyword JanetCoreValue dec
@@ -140,6 +142,7 @@ syn keyword JanetCoreValue deep-not=
 syn keyword JanetCoreValue deep=
 syn keyword JanetCoreValue def-
 syn keyword JanetCoreValue default
+syn keyword JanetCoreValue default-peg-grammar
 syn keyword JanetCoreValue defglobal
 syn keyword JanetCoreValue defmacro
 syn keyword JanetCoreValue defmacro-
@@ -161,6 +164,7 @@ syn keyword JanetCoreValue each
 syn keyword JanetCoreValue empty?
 syn keyword JanetCoreValue env-lookup
 syn keyword JanetCoreValue eprin
+syn keyword JanetCoreValue eprinf
 syn keyword JanetCoreValue eprint
 syn keyword JanetCoreValue eprintf
 syn keyword JanetCoreValue error
@@ -235,41 +239,55 @@ syn keyword JanetCoreValue last
 syn keyword JanetCoreValue length
 syn keyword JanetCoreValue let
 syn keyword JanetCoreValue load-image
+syn keyword JanetCoreValue load-image-dict
 syn keyword JanetCoreValue loop
 syn keyword JanetCoreValue macex
 syn keyword JanetCoreValue macex1
 syn keyword JanetCoreValue make-env
 syn keyword JanetCoreValue make-image
+syn keyword JanetCoreValue make-image-dict
 syn keyword JanetCoreValue map
 syn keyword JanetCoreValue mapcat
 syn keyword JanetCoreValue marshal
 syn keyword JanetCoreValue match
+syn keyword JanetCoreValue math/-inf
 syn keyword JanetCoreValue math/abs
 syn keyword JanetCoreValue math/acos
+syn keyword JanetCoreValue math/acosh
 syn keyword JanetCoreValue math/asin
+syn keyword JanetCoreValue math/asinh
 syn keyword JanetCoreValue math/atan
 syn keyword JanetCoreValue math/atan2
+syn keyword JanetCoreValue math/atanh
+syn keyword JanetCoreValue math/cbrt
 syn keyword JanetCoreValue math/ceil
 syn keyword JanetCoreValue math/cos
 syn keyword JanetCoreValue math/cosh
 syn keyword JanetCoreValue math/e
 syn keyword JanetCoreValue math/exp
+syn keyword JanetCoreValue math/exp2
+syn keyword JanetCoreValue math/expm1
 syn keyword JanetCoreValue math/floor
+syn keyword JanetCoreValue math/hypot
 syn keyword JanetCoreValue math/inf
 syn keyword JanetCoreValue math/log
 syn keyword JanetCoreValue math/log10
+syn keyword JanetCoreValue math/log2
 syn keyword JanetCoreValue math/pi
 syn keyword JanetCoreValue math/pow
 syn keyword JanetCoreValue math/random
 syn keyword JanetCoreValue math/rng
+syn keyword JanetCoreValue math/rng-buffer
 syn keyword JanetCoreValue math/rng-int
 syn keyword JanetCoreValue math/rng-uniform
+syn keyword JanetCoreValue math/round
 syn keyword JanetCoreValue math/seedrandom
 syn keyword JanetCoreValue math/sin
 syn keyword JanetCoreValue math/sinh
 syn keyword JanetCoreValue math/sqrt
 syn keyword JanetCoreValue math/tan
 syn keyword JanetCoreValue math/tanh
+syn keyword JanetCoreValue math/trunc
 syn keyword JanetCoreValue max
 syn keyword JanetCoreValue max-order
 syn keyword JanetCoreValue mean
@@ -283,6 +301,7 @@ syn keyword JanetCoreValue module/find
 syn keyword JanetCoreValue module/loaders
 syn keyword JanetCoreValue module/loading
 syn keyword JanetCoreValue module/paths
+syn keyword JanetCoreValue nan?
 syn keyword JanetCoreValue nat?
 syn keyword JanetCoreValue native
 syn keyword JanetCoreValue neg?
@@ -302,9 +321,11 @@ syn keyword JanetCoreValue order>=
 syn keyword JanetCoreValue os/arch
 syn keyword JanetCoreValue os/cd
 syn keyword JanetCoreValue os/clock
+syn keyword JanetCoreValue os/cryptorand
 syn keyword JanetCoreValue os/cwd
 syn keyword JanetCoreValue os/date
 syn keyword JanetCoreValue os/dir
+syn keyword JanetCoreValue os/environ
 syn keyword JanetCoreValue os/execute
 syn keyword JanetCoreValue os/exit
 syn keyword JanetCoreValue os/getenv
@@ -343,10 +364,12 @@ syn keyword JanetCoreValue postwalk
 syn keyword JanetCoreValue pp
 syn keyword JanetCoreValue prewalk
 syn keyword JanetCoreValue prin
+syn keyword JanetCoreValue prinf
 syn keyword JanetCoreValue print
 syn keyword JanetCoreValue printf
 syn keyword JanetCoreValue product
 syn keyword JanetCoreValue propagate
+syn keyword JanetCoreValue protect
 syn keyword JanetCoreValue put
 syn keyword JanetCoreValue put-in
 syn keyword JanetCoreValue quit
@@ -356,6 +379,7 @@ syn keyword JanetCoreValue repl
 syn keyword JanetCoreValue require
 syn keyword JanetCoreValue resume
 syn keyword JanetCoreValue reverse
+syn keyword JanetCoreValue root-env
 syn keyword JanetCoreValue run-context
 syn keyword JanetCoreValue scan-number
 syn keyword JanetCoreValue seq
@@ -415,8 +439,14 @@ syn keyword JanetCoreValue tarray/new
 syn keyword JanetCoreValue tarray/properties
 syn keyword JanetCoreValue tarray/slice
 syn keyword JanetCoreValue tarray/swap-bytes
+syn keyword JanetCoreValue thread/close
+syn keyword JanetCoreValue thread/current
+syn keyword JanetCoreValue thread/new
+syn keyword JanetCoreValue thread/receive
+syn keyword JanetCoreValue thread/send
 syn keyword JanetCoreValue trace
 syn keyword JanetCoreValue true?
+syn keyword JanetCoreValue truthy?
 syn keyword JanetCoreValue try
 syn keyword JanetCoreValue tuple
 syn keyword JanetCoreValue tuple/brackets
@@ -446,7 +476,7 @@ syn keyword JanetCoreValue yield
 syn keyword JanetCoreValue zero?
 syn keyword JanetCoreValue zipcoll
 
-" Janet Symbols
+" Try symchars but handle old vim versions.
 try
     let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z|\x80-\U10FFFF'
     " Make sure we support large character ranges in this vim version.
@@ -455,6 +485,7 @@ catch
     let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z'
 endtry
 
+" Janet Symbols
 let s:symchar = '0-9' . s:symcharnodig
 execute 'syn match JanetSymbol "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
 execute 'syn match JanetKeyword "\v<:%([' . s:symchar . '])*>"'
