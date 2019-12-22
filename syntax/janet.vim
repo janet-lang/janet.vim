@@ -76,6 +76,7 @@ syn keyword JanetCoreValue apply
 syn keyword JanetCoreValue array
 syn keyword JanetCoreValue array/concat
 syn keyword JanetCoreValue array/ensure
+syn keyword JanetCoreValue array/fill
 syn keyword JanetCoreValue array/insert
 syn keyword JanetCoreValue array/new
 syn keyword JanetCoreValue array/new-filled
