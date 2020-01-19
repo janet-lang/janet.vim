@@ -479,8 +479,16 @@ syn keyword JanetCoreValue yield
 syn keyword JanetCoreValue zero?
 syn keyword JanetCoreValue zipcoll
 
+" Try symchars but handle old vim versions.
+try
+    let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z|\x80-\U10FFFF'
+    " Make sure we support large character ranges in this vim version.
+    execute 'syn match JanetSymbolDud "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
+catch
+    let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z'
+endtry
+
 " Janet Symbols
-let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z|\x80-\U10FFFF'
 let s:symchar = '0-9' . s:symcharnodig
 execute 'syn match JanetSymbol "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
 execute 'syn match JanetKeyword "\v<:%([' . s:symchar . '])*>"'
