@@ -18,7 +18,7 @@ syntax keyword JanetCommentTodo contained FIXME XXX TODO FIXME: XXX: TODO:
 " JANET comments
 syn match JanetComment "#.*$" contains=JanetCommentTodo,@Spell
 
-syntax match JanetStringEscape '\v\\%([ntvr0zfe"\\]|x[[0-9a-fA-F]]\{2})' contained
+syntax match JanetStringEscape '\v\\%([ntvr0zfe"\\]|x[[0-9a-fA-F]]\{2}|u[[0-9a-fA-F]]\{4}|U[[0-9a-fA-F]]\{8})' contained
 syntax region JanetString matchgroup=JanetStringDelimiter start=/"/ skip=/\\\\\|\\"/ end=/"/ contains=JanetStringEscape,@Spell
 syntax region JanetBuffer matchgroup=JanetStringDelimiter start=/@"/ skip=/\\\\\|\\"/ end=/"/ contains=JanetStringEscape,@Spell
 syntax region JanetString matchgroup=JanetStringDelimiter start="\z(`\+\)" end="\z1" contains=@Spell
@@ -67,6 +67,8 @@ syn keyword JanetCoreValue =
 syn keyword JanetCoreValue >
 syn keyword JanetCoreValue >=
 syn keyword JanetCoreValue abstract?
+syn keyword JanetCoreValue accumulate
+syn keyword JanetCoreValue accumulate2
 syn keyword JanetCoreValue all
 syn keyword JanetCoreValue all-bindings
 syn keyword JanetCoreValue all-dynamics
@@ -119,6 +121,7 @@ syn keyword JanetCoreValue bxor
 syn keyword JanetCoreValue bytes?
 syn keyword JanetCoreValue case
 syn keyword JanetCoreValue cfunction?
+syn keyword JanetCoreValue chr
 syn keyword JanetCoreValue cli-main
 syn keyword JanetCoreValue comment
 syn keyword JanetCoreValue comp
@@ -165,6 +168,7 @@ syn keyword JanetCoreValue dyn
 syn keyword JanetCoreValue each
 syn keyword JanetCoreValue eachk
 syn keyword JanetCoreValue eachp
+syn keyword JanetCoreValue eflush
 syn keyword JanetCoreValue empty?
 syn keyword JanetCoreValue env-lookup
 syn keyword JanetCoreValue eprin
@@ -178,6 +182,7 @@ syn keyword JanetCoreValue even?
 syn keyword JanetCoreValue every?
 syn keyword JanetCoreValue extreme
 syn keyword JanetCoreValue false?
+syn keyword JanetCoreValue fiber/can-resume?
 syn keyword JanetCoreValue fiber/current
 syn keyword JanetCoreValue fiber/getenv
 syn keyword JanetCoreValue fiber/maxstack
@@ -187,8 +192,6 @@ syn keyword JanetCoreValue fiber/setmaxstack
 syn keyword JanetCoreValue fiber/status
 syn keyword JanetCoreValue fiber?
 syn keyword JanetCoreValue file/close
-syn keyword JanetCoreValue file/fdopen
-syn keyword JanetCoreValue file/fileno
 syn keyword JanetCoreValue file/flush
 syn keyword JanetCoreValue file/open
 syn keyword JanetCoreValue file/popen
@@ -202,6 +205,7 @@ syn keyword JanetCoreValue find-index
 syn keyword JanetCoreValue first
 syn keyword JanetCoreValue flatten
 syn keyword JanetCoreValue flatten-into
+syn keyword JanetCoreValue flush
 syn keyword JanetCoreValue for
 syn keyword JanetCoreValue freeze
 syn keyword JanetCoreValue frequencies
@@ -241,6 +245,7 @@ syn keyword JanetCoreValue keys
 syn keyword JanetCoreValue keyword
 syn keyword JanetCoreValue keyword?
 syn keyword JanetCoreValue kvs
+syn keyword JanetCoreValue label
 syn keyword JanetCoreValue last
 syn keyword JanetCoreValue length
 syn keyword JanetCoreValue let
@@ -270,15 +275,20 @@ syn keyword JanetCoreValue math/ceil
 syn keyword JanetCoreValue math/cos
 syn keyword JanetCoreValue math/cosh
 syn keyword JanetCoreValue math/e
+syn keyword JanetCoreValue math/erf
+syn keyword JanetCoreValue math/erfc
 syn keyword JanetCoreValue math/exp
 syn keyword JanetCoreValue math/exp2
 syn keyword JanetCoreValue math/expm1
 syn keyword JanetCoreValue math/floor
+syn keyword JanetCoreValue math/gamma
 syn keyword JanetCoreValue math/hypot
 syn keyword JanetCoreValue math/inf
 syn keyword JanetCoreValue math/log
 syn keyword JanetCoreValue math/log10
+syn keyword JanetCoreValue math/log1p
 syn keyword JanetCoreValue math/log2
+syn keyword JanetCoreValue math/next
 syn keyword JanetCoreValue math/pi
 syn keyword JanetCoreValue math/pow
 syn keyword JanetCoreValue math/random
@@ -295,12 +305,11 @@ syn keyword JanetCoreValue math/tan
 syn keyword JanetCoreValue math/tanh
 syn keyword JanetCoreValue math/trunc
 syn keyword JanetCoreValue max
-syn keyword JanetCoreValue max-order
 syn keyword JanetCoreValue mean
 syn keyword JanetCoreValue merge
 syn keyword JanetCoreValue merge-into
 syn keyword JanetCoreValue min
-syn keyword JanetCoreValue min-order
+syn keyword JanetCoreValue mod
 syn keyword JanetCoreValue module/add-paths
 syn keyword JanetCoreValue module/cache
 syn keyword JanetCoreValue module/expand-path
@@ -322,6 +331,7 @@ syn keyword JanetCoreValue one?
 syn keyword JanetCoreValue or
 syn keyword JanetCoreValue os/arch
 syn keyword JanetCoreValue os/cd
+syn keyword JanetCoreValue os/chmod
 syn keyword JanetCoreValue os/clock
 syn keyword JanetCoreValue os/cryptorand
 syn keyword JanetCoreValue os/cwd
@@ -332,7 +342,13 @@ syn keyword JanetCoreValue os/execute
 syn keyword JanetCoreValue os/exit
 syn keyword JanetCoreValue os/getenv
 syn keyword JanetCoreValue os/link
+syn keyword JanetCoreValue os/lstat
 syn keyword JanetCoreValue os/mkdir
+syn keyword JanetCoreValue os/mktime
+syn keyword JanetCoreValue os/perm-int
+syn keyword JanetCoreValue os/perm-string
+syn keyword JanetCoreValue os/readlink
+syn keyword JanetCoreValue os/realpath
 syn keyword JanetCoreValue os/rename
 syn keyword JanetCoreValue os/rm
 syn keyword JanetCoreValue os/rmdir
@@ -340,8 +356,10 @@ syn keyword JanetCoreValue os/setenv
 syn keyword JanetCoreValue os/shell
 syn keyword JanetCoreValue os/sleep
 syn keyword JanetCoreValue os/stat
+syn keyword JanetCoreValue os/symlink
 syn keyword JanetCoreValue os/time
 syn keyword JanetCoreValue os/touch
+syn keyword JanetCoreValue os/umask
 syn keyword JanetCoreValue os/which
 syn keyword JanetCoreValue pairs
 syn keyword JanetCoreValue parser/byte
@@ -370,6 +388,7 @@ syn keyword JanetCoreValue prinf
 syn keyword JanetCoreValue print
 syn keyword JanetCoreValue printf
 syn keyword JanetCoreValue product
+syn keyword JanetCoreValue prompt
 syn keyword JanetCoreValue propagate
 syn keyword JanetCoreValue protect
 syn keyword JanetCoreValue put
@@ -377,9 +396,11 @@ syn keyword JanetCoreValue put-in
 syn keyword JanetCoreValue quit
 syn keyword JanetCoreValue range
 syn keyword JanetCoreValue reduce
+syn keyword JanetCoreValue reduce2
 syn keyword JanetCoreValue repl
 syn keyword JanetCoreValue require
 syn keyword JanetCoreValue resume
+syn keyword JanetCoreValue return
 syn keyword JanetCoreValue reverse
 syn keyword JanetCoreValue root-env
 syn keyword JanetCoreValue run-context
@@ -387,6 +408,7 @@ syn keyword JanetCoreValue scan-number
 syn keyword JanetCoreValue seq
 syn keyword JanetCoreValue setdyn
 syn keyword JanetCoreValue short-fn
+syn keyword JanetCoreValue signal
 syn keyword JanetCoreValue slice
 syn keyword JanetCoreValue slurp
 syn keyword JanetCoreValue some
@@ -465,6 +487,7 @@ syn keyword JanetCoreValue update
 syn keyword JanetCoreValue update-in
 syn keyword JanetCoreValue use
 syn keyword JanetCoreValue values
+syn keyword JanetCoreValue var-
 syn keyword JanetCoreValue varfn
 syn keyword JanetCoreValue varglobal
 syn keyword JanetCoreValue walk
