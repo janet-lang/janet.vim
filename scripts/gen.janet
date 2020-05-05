@@ -61,17 +61,19 @@ catch
     let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z'
 endtry
 
-" Janet Symbols
-let s:symchar = '0-9' . s:symcharnodig
-execute 'syntax match JanetSymbol "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
-execute 'syntax match JanetKeyword "\v<:%([' . s:symchar . '])*>"'
-unlet! s:symchar s:symcharnodig
-
+" Janet special characters
 syntax match JanetQuote "'"
 syntax match JanetSplice ";"
 syntax match JanetQuasiquote "~"
 syntax match JanetUnquote ","
 syntax match JanetShortFn "|"
+
+" Janet symbols
+let s:symchar = '0-9' . s:symcharnodig
+execute 'syntax match JanetSymbol "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
+execute 'syntax match JanetKeyword "\v<:%([' . s:symchar . '])*>"'
+execute 'syntax match JanetQuoted "\v' . "'" . '<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
+unlet! s:symchar s:symcharnodig
 
 " Janet numbers
 function! s:syntaxNumber(prefix, expo, digit)
@@ -90,7 +92,7 @@ call s:syntaxNumber('0x', '\&', '0123456789abcdef')
 unlet! s:radix_chars s:radix
 
 " -*- TOP CLUSTER -*-
-syntax cluster JanetTop contains=@Spell,JanetComment,JanetConstant,JanetQuote,JanetKeyword,JanetSymbol,JanetNumber,JanetString,JanetBuffer,JanetTuple,JanetArray,JanetTable,JanetStruct,JanetSpecialForm,JanetBoolean,JanetFunction,JanetMacro
+syntax cluster JanetTop contains=@Spell,JanetComment,JanetConstant,JanetQuoted,JanetKeyword,JanetSymbol,JanetNumber,JanetString,JanetBuffer,JanetTuple,JanetArray,JanetTable,JanetStruct,JanetSpecialForm,JanetBoolean,JanetFunction,JanetMacro
 
 syntax region JanetTuple matchgroup=JanetParen start="("  end=")" contains=@JanetTop fold
 syntax region JanetArray matchgroup=JanetParen start="@("  end=")" contains=@JanetTop fold
@@ -107,6 +109,7 @@ syntax sync fromstart
 " Highlighting
 hi def link JanetComment Comment
 hi def link JanetSymbol Normal
+hi def link JanetQuoted Identifier
 hi def link JanetNumber Number
 hi def link JanetConstant Constant
 hi def link JanetBoolean Boolean
