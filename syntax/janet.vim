@@ -97,7 +97,7 @@ syntax sync fromstart
 
 " Highlighting
 hi def link JanetComment Comment
-hi def link JanetSymbol Identifier
+hi def link JanetSymbol Normal
 hi def link JanetNumber Number
 hi def link JanetConstant Constant
 hi def link JanetBoolean Boolean
