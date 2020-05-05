@@ -60,9 +60,9 @@ unlet! s:symchar s:symcharnodig
 
 syntax match JanetQuote "'"
 syntax match JanetSplice ";"
-syntax match JanetQuasiquote "\~"
-syntax match JanetUnquote "\,"
-syntax match JanetShortFn "\|"
+syntax match JanetQuasiquote "~"
+syntax match JanetUnquote ","
+syntax match JanetShortFn "|"
 
 " Janet numbers
 function! s:syntaxNumber(prefix, expo, digit)
