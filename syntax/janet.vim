@@ -141,6 +141,7 @@ syn keyword JanetCoreValue debug/stacktrace
 syn keyword JanetCoreValue debug/step
 syn keyword JanetCoreValue debug/unbreak
 syn keyword JanetCoreValue debug/unfbreak
+syn keyword JanetCoreValue debugger-env
 syn keyword JanetCoreValue dec
 syn keyword JanetCoreValue deep-not=
 syn keyword JanetCoreValue deep=
@@ -168,6 +169,7 @@ syn keyword JanetCoreValue dyn
 syn keyword JanetCoreValue each
 syn keyword JanetCoreValue eachk
 syn keyword JanetCoreValue eachp
+syn keyword JanetCoreValue edefer
 syn keyword JanetCoreValue eflush
 syn keyword JanetCoreValue empty?
 syn keyword JanetCoreValue env-lookup
@@ -187,6 +189,7 @@ syn keyword JanetCoreValue fiber/current
 syn keyword JanetCoreValue fiber/getenv
 syn keyword JanetCoreValue fiber/maxstack
 syn keyword JanetCoreValue fiber/new
+syn keyword JanetCoreValue fiber/root
 syn keyword JanetCoreValue fiber/setenv
 syn keyword JanetCoreValue fiber/setmaxstack
 syn keyword JanetCoreValue fiber/status
@@ -321,6 +324,12 @@ syn keyword JanetCoreValue nan?
 syn keyword JanetCoreValue nat?
 syn keyword JanetCoreValue native
 syn keyword JanetCoreValue neg?
+syn keyword JanetCoreValue net/chunk
+syn keyword JanetCoreValue net/close
+syn keyword JanetCoreValue net/connect
+syn keyword JanetCoreValue net/read
+syn keyword JanetCoreValue net/server
+syn keyword JanetCoreValue net/write
 syn keyword JanetCoreValue next
 syn keyword JanetCoreValue nil?
 syn keyword JanetCoreValue not
@@ -362,6 +371,7 @@ syn keyword JanetCoreValue os/touch
 syn keyword JanetCoreValue os/umask
 syn keyword JanetCoreValue os/which
 syn keyword JanetCoreValue pairs
+syn keyword JanetCoreValue parse
 syn keyword JanetCoreValue parser/byte
 syn keyword JanetCoreValue parser/clone
 syn keyword JanetCoreValue parser/consume
@@ -413,7 +423,9 @@ syn keyword JanetCoreValue slice
 syn keyword JanetCoreValue slurp
 syn keyword JanetCoreValue some
 syn keyword JanetCoreValue sort
+syn keyword JanetCoreValue sort-by
 syn keyword JanetCoreValue sorted
+syn keyword JanetCoreValue sorted-by
 syn keyword JanetCoreValue spit
 syn keyword JanetCoreValue stderr
 syn keyword JanetCoreValue stdin
