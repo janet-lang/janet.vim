@@ -1,13 +1,17 @@
 # Generate real syntax file from template.
 
-(def specials (seq [sym :in (all-bindings) :when (not= 'specials sym)]
-                    (string "syn keyword JanetCoreValue " (string/replace "|" "\\|" sym))))
+(def built-ins (filter |(not= 'built-ins $) (all-bindings)))
+
+(def functions (filter |(not (get (dyn $) :macro)) built-ins))
+(def macros (filter |(get (dyn $) :macro) built-ins))
 
 (def template
 `````
 " Vim syntax file
-" Language: JANET
+" Language:   Janet
 " Maintainer: Calvin Rose
+" URL:        https://github.com/janet-lang/janet.vim
+" License:    MIT License
 
 if exists("b:current_syntax")
     finish
@@ -22,8 +26,8 @@ endif
 
 syntax keyword JanetCommentTodo contained FIXME XXX TODO FIXME: XXX: TODO:
 
-" JANET comments
-syn match JanetComment "#.*$" contains=JanetCommentTodo,@Spell
+" Janet comments
+syntax match JanetComment "#.*$" contains=JanetCommentTodo,@Spell
 
 syntax match JanetStringEscape '\v\\%([ntvr0zfe"\\]|x[[0-9a-fA-F]]\{2}|u[[0-9a-fA-F]]\{4}|U[[0-9a-fA-F]]\{6})' contained
 syntax region JanetString matchgroup=JanetStringDelimiter start=/"/ skip=/\\\\\|\\"/ end=/"/ contains=JanetStringEscape,@Spell
@@ -31,47 +35,49 @@ syntax region JanetBuffer matchgroup=JanetStringDelimiter start=/@"/ skip=/\\\\\
 syntax region JanetString matchgroup=JanetStringDelimiter start="\z(`\+\)" end="\z1" contains=@Spell
 syntax region JanetBuffer matchgroup=JanetStringDelimiter start="@\z(`\+\)" end="\z1" contains=@Spell
 
-syn keyword JanetConstant nil 
+let s:janet_syntax_keywords = {
+    \   'JanetBoolean': ["false","true"]
+    \ , 'JanetConstant': ["nil"]
+    \ , 'JanetSpecialForm': ["if","do","fn","while","def","var","quote","quasiquote","unquote","splice","set","break"]
+    \ , 'JanetFunction': $$FUNCTIONS$$
+    \ , 'JanetMacro': $$MACROS$$
+    \ }
 
-syn keyword JanetBoolean true 
-syn keyword JanetBoolean false
+function! s:syntax_keyword(dict)
+    for key in keys(a:dict)
+        execute 'syntax keyword' key join(a:dict[key], ' ')
+    endfor
+endfunction
 
-" Janet special forms
-syn keyword JanetSpecialForm if
-syn keyword JanetSpecialForm do
-syn keyword JanetSpecialForm fn
-syn keyword JanetSpecialForm while
-syn keyword JanetSpecialForm def
-syn keyword JanetSpecialForm var
-syn keyword JanetSpecialForm quote
-syn keyword JanetSpecialForm quasiquote
-syn keyword JanetSpecialForm unquote
-syn keyword JanetSpecialForm splice
-syn keyword JanetSpecialForm set
-syn keyword JanetSpecialForm break
+call s:syntax_keyword(s:janet_syntax_keywords)
 
-" Not really special forms, but useful to highlight
-" All symbols from janet core.
-$$SPECIALS$$
+unlet! s:key
+delfunction s:syntax_keyword
 
 " Try symchars but handle old vim versions.
 try
     let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z|\x80-\U10FFFF'
     " Make sure we support large character ranges in this vim version.
-    execute 'syn match JanetSymbolDud "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
+    execute 'syntax match JanetSymbolDud "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
 catch
     let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z'
 endtry
 
-" Janet Symbols
+" Janet special characters
+syntax match JanetQuote "'"
+syntax match JanetSplice ";"
+syntax match JanetQuasiquote "~"
+syntax match JanetUnquote ","
+syntax match JanetShortFn "|"
+
+" Janet symbols
 let s:symchar = '0-9' . s:symcharnodig
-execute 'syn match JanetSymbol "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
-execute 'syn match JanetKeyword "\v<:%([' . s:symchar . '])*>"'
+execute 'syntax match JanetSymbol "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
+execute 'syntax match JanetKeyword "\v<:%([' . s:symchar . '])*>"'
+execute 'syntax match JanetQuoted "\v' . "'" . '<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
 unlet! s:symchar s:symcharnodig
 
-syn match JanetQuote "'"
-
-" JANET numbers
+" Janet numbers
 function! s:syntaxNumber(prefix, expo, digit)
   let l:digit = '[_' . a:digit . ']'
   execute 'syntax match JanetNumber "\v\c<[-+]?' . a:prefix . '%(' .
@@ -88,7 +94,7 @@ call s:syntaxNumber('0x', '\&', '0123456789abcdef')
 unlet! s:radix_chars s:radix
 
 " -*- TOP CLUSTER -*-
-syntax cluster JanetTop contains=@Spell,JanetComment,JanetConstant,JanetQuote,JanetKeyword,JanetSymbol,JanetNumber,JanetString,JanetBuffer,JanetTuple,JanetArray,JanetTable,JanetStruct,JanetSpecialForm,JanetBoolean,JanetCoreValue
+syntax cluster JanetTop contains=@Spell,JanetComment,JanetConstant,JanetQuoted,JanetKeyword,JanetSymbol,JanetNumber,JanetString,JanetBuffer,JanetTuple,JanetArray,JanetTable,JanetStruct,JanetSpecialForm,JanetBoolean,JanetFunction,JanetMacro
 
 syntax region JanetTuple matchgroup=JanetParen start="("  end=")" contains=@JanetTop fold
 syntax region JanetArray matchgroup=JanetParen start="@("  end=")" contains=@JanetTop fold
@@ -104,18 +110,25 @@ syntax sync fromstart
 
 " Highlighting
 hi def link JanetComment Comment
-hi def link JanetSymbol Identifier
+hi def link JanetSymbol Normal
+hi def link JanetQuoted Identifier
 hi def link JanetNumber Number
 hi def link JanetConstant Constant
+hi def link JanetBoolean Boolean
 hi def link JanetKeyword Keyword
 hi def link JanetSpecialForm Special
-hi def link JanetCoreValue Special
-hi def link JanetString String
+hi def link JanetFunction Function
+hi def link JanetMacro Macro
 hi def link JanetBuffer String
+hi def link JanetString String
 hi def link JanetStringDelimiter String
-hi def link JanetBoolean Boolean
+hi def link JanetStringEscape Character
 
 hi def link JanetQuote SpecialChar
+hi def link JanetSplice SpecialChar
+hi def link JanetQuasiquote SpecialChar
+hi def link JanetUnquote SpecialChar
+hi def link JanetShortFn SpecialChar
 hi def link JanetParen Delimiter
 
 let b:current_syntax = "janet"
@@ -124,4 +137,7 @@ let &cpo = s:cpo_sav
 unlet! s:cpo_sav
 `````)
 
-(spit "syntax/janet.vim" (string/replace "$$SPECIALS$$" (string/join specials "\n") template))
+(->> template
+    (string/replace "$$FUNCTIONS$$" (string "[\"" (string/join functions "\",\"") "\"]"))
+    (string/replace "$$MACROS$$" (string "[\"" (string/join macros "\",\"") "\"]"))
+    (spit "syntax/janet.vim"))
