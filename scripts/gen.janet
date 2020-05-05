@@ -109,14 +109,15 @@ hi def link JanetComment Comment
 hi def link JanetSymbol Identifier
 hi def link JanetNumber Number
 hi def link JanetConstant Constant
+hi def link JanetBoolean Boolean
 hi def link JanetKeyword Keyword
 hi def link JanetSpecialForm Special
 hi def link JanetFunction Function
 hi def link JanetMacro Macro
-hi def link JanetString String
 hi def link JanetBuffer String
+hi def link JanetString String
 hi def link JanetStringDelimiter String
-hi def link JanetBoolean Boolean
+hi def link JanetStringEscape Character
 
 hi def link JanetQuote SpecialChar
 hi def link JanetSplice SpecialChar
