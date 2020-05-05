@@ -57,7 +57,7 @@ endtry
 " Janet special characters
 syntax match JanetQuote "'"
 syntax match JanetSplice ";"
-syntax match JanetQuasiquote "~"
+syntax match JanetQuasiquote "\~"
 syntax match JanetUnquote ","
 syntax match JanetShortFn "|"
 
