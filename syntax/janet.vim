@@ -1,5 +1,5 @@
 " Vim syntax file
-" Language: JANET
+" Language: Janet
 " Maintainer: Calvin Rose
 
 if exists("b:current_syntax")
@@ -15,7 +15,7 @@ endif
 
 syntax keyword JanetCommentTodo contained FIXME XXX TODO FIXME: XXX: TODO:
 
-" JANET comments
+" Janet comments
 syn match JanetComment "#.*$" contains=JanetCommentTodo,@Spell
 
 syntax match JanetStringEscape '\v\\%([ntvr0zfe"\\]|x[[0-9a-fA-F]]\{2}|u[[0-9a-fA-F]]\{4}|U[[0-9a-fA-F]]\{6})' contained
@@ -523,7 +523,7 @@ unlet! s:symchar s:symcharnodig
 
 syn match JanetQuote "'"
 
-" JANET numbers
+" Janet numbers
 function! s:syntaxNumber(prefix, expo, digit)
   let l:digit = '[_' . a:digit . ']'
   execute 'syntax match JanetNumber "\v\c<[-+]?' . a:prefix . '%(' .
