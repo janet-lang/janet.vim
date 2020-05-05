@@ -24,9 +24,9 @@ syntax region JanetBuffer matchgroup=JanetStringDelimiter start=/@"/ skip=/\\\\\
 syntax region JanetString matchgroup=JanetStringDelimiter start="\z(`\+\)" end="\z1" contains=@Spell
 syntax region JanetBuffer matchgroup=JanetStringDelimiter start="@\z(`\+\)" end="\z1" contains=@Spell
 
-syn keyword JanetConstant nil 
+syn keyword JanetConstant nil
 
-syn keyword JanetBoolean true 
+syn keyword JanetBoolean true
 syn keyword JanetBoolean false
 
 " Janet special forms
@@ -278,20 +278,15 @@ syn keyword JanetCoreValue math/ceil
 syn keyword JanetCoreValue math/cos
 syn keyword JanetCoreValue math/cosh
 syn keyword JanetCoreValue math/e
-syn keyword JanetCoreValue math/erf
-syn keyword JanetCoreValue math/erfc
 syn keyword JanetCoreValue math/exp
 syn keyword JanetCoreValue math/exp2
 syn keyword JanetCoreValue math/expm1
 syn keyword JanetCoreValue math/floor
-syn keyword JanetCoreValue math/gamma
 syn keyword JanetCoreValue math/hypot
 syn keyword JanetCoreValue math/inf
 syn keyword JanetCoreValue math/log
 syn keyword JanetCoreValue math/log10
-syn keyword JanetCoreValue math/log1p
 syn keyword JanetCoreValue math/log2
-syn keyword JanetCoreValue math/next
 syn keyword JanetCoreValue math/pi
 syn keyword JanetCoreValue math/pow
 syn keyword JanetCoreValue math/random
@@ -354,8 +349,6 @@ syn keyword JanetCoreValue os/link
 syn keyword JanetCoreValue os/lstat
 syn keyword JanetCoreValue os/mkdir
 syn keyword JanetCoreValue os/mktime
-syn keyword JanetCoreValue os/perm-int
-syn keyword JanetCoreValue os/perm-string
 syn keyword JanetCoreValue os/readlink
 syn keyword JanetCoreValue os/realpath
 syn keyword JanetCoreValue os/rename
@@ -368,7 +361,6 @@ syn keyword JanetCoreValue os/stat
 syn keyword JanetCoreValue os/symlink
 syn keyword JanetCoreValue os/time
 syn keyword JanetCoreValue os/touch
-syn keyword JanetCoreValue os/umask
 syn keyword JanetCoreValue os/which
 syn keyword JanetCoreValue pairs
 syn keyword JanetCoreValue parse

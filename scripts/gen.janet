@@ -31,9 +31,9 @@ syntax region JanetBuffer matchgroup=JanetStringDelimiter start=/@"/ skip=/\\\\\
 syntax region JanetString matchgroup=JanetStringDelimiter start="\z(`\+\)" end="\z1" contains=@Spell
 syntax region JanetBuffer matchgroup=JanetStringDelimiter start="@\z(`\+\)" end="\z1" contains=@Spell
 
-syn keyword JanetConstant nil 
+syn keyword JanetConstant nil
 
-syn keyword JanetBoolean true 
+syn keyword JanetBoolean true
 syn keyword JanetBoolean false
 
 " Janet special forms
