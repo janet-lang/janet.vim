@@ -1,7 +1,7 @@
 # Generate real syntax file from template.
 
 (def specials (seq [sym :in (all-bindings) :when (not= 'specials sym)]
-                    (string "syn keyword JanetCoreValue " (string/replace "|" "\\|" sym))))
+                    (string "syntax keyword JanetCoreValue " (string/replace "|" "\\|" sym))))
 
 (def template
 `````
@@ -23,7 +23,7 @@ endif
 syntax keyword JanetCommentTodo contained FIXME XXX TODO FIXME: XXX: TODO:
 
 " Janet comments
-syn match JanetComment "#.*$" contains=JanetCommentTodo,@Spell
+syntax match JanetComment "#.*$" contains=JanetCommentTodo,@Spell
 
 syntax match JanetStringEscape '\v\\%([ntvr0zfe"\\]|x[[0-9a-fA-F]]\{2}|u[[0-9a-fA-F]]\{4}|U[[0-9a-fA-F]]\{6})' contained
 syntax region JanetString matchgroup=JanetStringDelimiter start=/"/ skip=/\\\\\|\\"/ end=/"/ contains=JanetStringEscape,@Spell
@@ -31,24 +31,24 @@ syntax region JanetBuffer matchgroup=JanetStringDelimiter start=/@"/ skip=/\\\\\
 syntax region JanetString matchgroup=JanetStringDelimiter start="\z(`\+\)" end="\z1" contains=@Spell
 syntax region JanetBuffer matchgroup=JanetStringDelimiter start="@\z(`\+\)" end="\z1" contains=@Spell
 
-syn keyword JanetConstant nil
+syntax keyword JanetConstant nil
 
-syn keyword JanetBoolean true
-syn keyword JanetBoolean false
+syntax keyword JanetBoolean true
+syntax keyword JanetBoolean false
 
 " Janet special forms
-syn keyword JanetSpecialForm if
-syn keyword JanetSpecialForm do
-syn keyword JanetSpecialForm fn
-syn keyword JanetSpecialForm while
-syn keyword JanetSpecialForm def
-syn keyword JanetSpecialForm var
-syn keyword JanetSpecialForm quote
-syn keyword JanetSpecialForm quasiquote
-syn keyword JanetSpecialForm unquote
-syn keyword JanetSpecialForm splice
-syn keyword JanetSpecialForm set
-syn keyword JanetSpecialForm break
+syntax keyword JanetSpecialForm if
+syntax keyword JanetSpecialForm do
+syntax keyword JanetSpecialForm fn
+syntax keyword JanetSpecialForm while
+syntax keyword JanetSpecialForm def
+syntax keyword JanetSpecialForm var
+syntax keyword JanetSpecialForm quote
+syntax keyword JanetSpecialForm quasiquote
+syntax keyword JanetSpecialForm unquote
+syntax keyword JanetSpecialForm splice
+syntax keyword JanetSpecialForm set
+syntax keyword JanetSpecialForm break
 
 " Not really special forms, but useful to highlight
 " All symbols from janet core.
@@ -58,18 +58,18 @@ $$SPECIALS$$
 try
     let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z|\x80-\U10FFFF'
     " Make sure we support large character ranges in this vim version.
-    execute 'syn match JanetSymbolDud "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
+    execute 'syntax match JanetSymbolDud "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
 catch
     let s:symcharnodig = '\!\$%\&\*\+\-./:<=>?@A-Z^_a-z'
 endtry
 
 " Janet Symbols
 let s:symchar = '0-9' . s:symcharnodig
-execute 'syn match JanetSymbol "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
-execute 'syn match JanetKeyword "\v<:%([' . s:symchar . '])*>"'
+execute 'syntax match JanetSymbol "\v<%([' . s:symcharnodig . '])%([' . s:symchar . '])*>"'
+execute 'syntax match JanetKeyword "\v<:%([' . s:symchar . '])*>"'
 unlet! s:symchar s:symcharnodig
 
-syn match JanetQuote "'"
+syntax match JanetQuote "'"
 
 " Janet numbers
 function! s:syntaxNumber(prefix, expo, digit)
