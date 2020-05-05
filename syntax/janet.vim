@@ -1,6 +1,8 @@
 " Vim syntax file
-" Language: Janet
+" Language:   Janet
 " Maintainer: Calvin Rose
+" URL:        https://github.com/janet-lang/janet.vim
+" License:    MIT License
 
 if exists("b:current_syntax")
     finish
