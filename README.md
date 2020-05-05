@@ -1,12 +1,20 @@
-# janet.vm
+# janet.vim
 
-Syntax files for [janet](https://github.com/bakpakin/janet) in vim. The Janet language is in flux,
+Syntax files for [Janet](https://github.com/janet-lang/janet) in Vim. The Janet language is in flux,
 and this repo will be updated with it.
 
-# Install with Vundle
+## Install with Vundle
 
 ```
 Plugin 'bakpakin/janet.vim'
 ```
 
-Installation should work with any pathogen compatible set up.
+## Install with vim-plug
+
+```
+Plug 'bakpakin/janet.vim'
+```
+
+## Other Package Managers
+
+Installation should work with any Pathogen-compatible set up.
