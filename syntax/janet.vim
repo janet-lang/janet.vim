@@ -114,6 +114,7 @@ hi def link JanetBuffer String
 hi def link JanetString String
 hi def link JanetStringDelimiter String
 hi def link JanetStringEscape Character
+hi def link JanetError Error
 
 hi def link JanetQuote SpecialChar
 hi def link JanetSplice SpecialChar
