@@ -123,13 +123,13 @@ hi def link JanetBuffer String
 hi def link JanetString String
 hi def link JanetStringDelimiter String
 hi def link JanetStringEscape Character
-
 hi def link JanetQuote SpecialChar
 hi def link JanetSplice SpecialChar
 hi def link JanetQuasiquote SpecialChar
 hi def link JanetUnquote SpecialChar
 hi def link JanetShortFn SpecialChar
 hi def link JanetParen Delimiter
+hi def link JanetError Error
 
 let b:current_syntax = "janet"
 
