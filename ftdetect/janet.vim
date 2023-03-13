@@ -4,5 +4,5 @@ fun! s:DetectJanet()
     endif
 endfun
 
-autocmd BufRead,BufNewFile *.janet,*.jdn setlocal filetype=janet
+autocmd BufRead,BufNewFile *.janet,*.jdn,*.cgen setlocal filetype=janet
 autocmd BufNewFile,BufRead * call s:DetectJanet()
