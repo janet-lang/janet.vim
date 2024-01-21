@@ -6,13 +6,13 @@ and this repo will be updated with it.
 ## Install with Vundle
 
 ```
-Plugin 'bakpakin/janet.vim'
+Plugin 'janet-lang/janet.vim'
 ```
 
 ## Install with vim-plug
 
 ```
-Plug 'bakpakin/janet.vim'
+Plug 'janet-lang/janet.vim'
 ```
 
 ## Other Package Managers
