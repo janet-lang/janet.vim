@@ -20,9 +20,6 @@ setlocal define=\\v[(/]def(ault)@!\\S*
 " Remove 't' from 'formatoptions' to avoid auto-wrapping code.
 setlocal formatoptions-=t
 
-setlocal lisp
-setlocal noautoindent
-
 setlocal comments=n:#
 setlocal commentstring=#\ %s
 
