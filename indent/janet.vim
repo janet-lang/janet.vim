@@ -52,7 +52,7 @@ if exists("*searchpairpos")
 	endfunction
 
 	function! s:ignored_region()
-		return s:syn_id_name() =~? '\vstring|comment|character'
+		return s:syn_id_name() =~? '\vstring|comment|character|buffer'
 	endfunction
 
 	function! s:current_char()
